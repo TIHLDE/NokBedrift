@@ -1,4 +1,3 @@
-import {parseISO} from 'date-fns';
 import {Badge, CalendarClock, MapPin} from 'lucide-react';
 import {JobPost} from "@/types/JobPost";
 import {getJobpostType} from "@/lib/utils";
@@ -34,11 +33,11 @@ export const JobPostListItem = ({jobPost}: JobPostListItemProps) => {
 
                             <div className='flex flex-wrap gap-2'>
                                 <Badge
-                                    className='bg-primary test-primary-foreground font-medium px-3 py-1 rounded-full w-fit'>{getJobpostType(jobPost.job_type)}</Badge>
+                                    className='bg-primary text-primary-foreground font-medium px-3 py-1 rounded-full w-fit'>{getJobpostType(jobPost.job_type)}</Badge>
                                 <Badge
-                                    className='bg-primary test-primary-foreground font-medium px-3 py-1 rounded-full w-fit'>{jobPost.company}</Badge>
+                                    className='bg-primary text-primary-foreground font-medium px-3 py-1 rounded-full w-fit'>{jobPost.company}</Badge>
                                 <Badge
-                                    className='bg-primary test-primary-foreground font-medium px-3 py-1 rounded-full w-fit'>{classRange}</Badge>
+                                    className='bg-primary text-primary-foreground font-medium px-3 py-1 rounded-full w-fit'>{classRange}</Badge>
                             </div>
                         </div>
 
