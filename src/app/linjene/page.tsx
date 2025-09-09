@@ -34,11 +34,11 @@ export default function Linjene() {
       {/* Om TIHLDE Linjene */}
       <section id="linjene" className="max-w-5xl px-4 py-16 mt-32">
         <h1 className="mb-4 text-5xl font-bold md:text-6xl">Linjene</h1>
-        <div className="flex flex-col gap-8 mt-8">
+        <div className="flex flex-col gap-12 mt-8">
           {linjer.map((linje) => (
             <div
               key={linje.title}
-              className="p-6"
+              className="p-8"
             >
               <h3 className="mb-2 text-xl font-semibold">{linje.title}</h3>
               <p className="text-gray-300 leading-relaxed">
