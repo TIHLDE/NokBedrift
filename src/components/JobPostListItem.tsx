@@ -1,4 +1,5 @@
-import {parseISO} from 'date-fns';
+import {format} from 'date-fns';
+import {nb} from "date-fns/locale";
 import {Badge, CalendarClock, MapPin} from 'lucide-react';
 import {JobPost} from "@/types/JobPost";
 import {getJobpostType} from "@/lib/utils";
@@ -10,7 +11,9 @@ export type JobPostListItemProps = {
 };
 
 export const JobPostListItem = ({jobPost}: JobPostListItemProps) => {
-    const deadline = jobPost.is_continuously_hiring ? 'Fortløpende' : jobPost.deadline;
+    const date = format(new Date (jobPost.deadline), "EEE d. MMM", { locale: nb })
+
+    const deadline = jobPost.is_continuously_hiring ? 'Fortløpende' : date;
 
     const classRange = jobPost.class_start === jobPost.class_end ? `${jobPost.class_start}. klasse` : `${jobPost.class_start}. - ${jobPost.class_end}. klasse`;
 
@@ -50,7 +53,7 @@ export const JobPostListItem = ({jobPost}: JobPostListItemProps) => {
                             </div>
                             <div className='flex items-center gap-2 text-sm'>
                                 <CalendarClock className='h-5 w-5 text-muted-foreground'/>
-                                <span>{deadline}</span>
+                                <span className='normal-case'>{deadline}</span>
                             </div>
                         </div>
                     </div>
