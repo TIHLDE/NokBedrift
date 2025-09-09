@@ -53,7 +53,7 @@ export const JobPostListItem = ({jobPost}: JobPostListItemProps) => {
                             </div>
                             <div className='flex items-center gap-2 text-sm'>
                                 <CalendarClock className='h-5 w-5 text-muted-foreground'/>
-                                <span className='normal-case'>{deadline}</span>
+                                <span className='capitalize'>{deadline}</span>
                             </div>
                         </div>
                     </div>
