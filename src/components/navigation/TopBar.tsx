@@ -1,9 +1,11 @@
+'use client'
+
 import { useEffect, useState } from 'react';
-import { BellIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import TihldeLogo from '../miscellaneous/TihldeLogo';
+import {BellIcon, MoonIcon, SunIcon} from "lucide-react";
 
 const navigationItems = [
   { id: 'home', text: 'Hjem', to: '/' },

@@ -1,13 +1,15 @@
+'use client'
+
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-import { HomeIcon, AcademicCapIcon, PresentationChartBarIcon, BriefcaseIcon, PhoneIcon } from '@heroicons/react/24/outline';
+import {ChartLine, GraduationCap, HomeIcon} from "lucide-react";
 
 const navigationItems = [
   { id: 'home', text: 'Hjem', to: '/', icon: <HomeIcon className="h-5 w-5" /> },
-  { id: 'bedpres', text: 'Bedriftspresentasjoner', to: '/bedpres', icon: <PresentationChartBarIcon className="h-5 w-5" /> },
-  { id: 'linjene', text: 'Linjene', to: '/linjene', icon: <AcademicCapIcon className="h-5 w-5" /> },
+  { id: 'bedpres', text: 'Bedriftspresentasjoner', to: '/bedpres', icon: <ChartLine className="h-5 w-5" /> },
+  { id: 'linjene', text: 'Linjene', to: '/linjene', icon: <GraduationCap className="h-5 w-5" /> },
 ];
 
 const BottomBar: React.FC = () => {
