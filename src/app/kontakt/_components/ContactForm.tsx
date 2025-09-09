@@ -31,7 +31,6 @@ const formSchema = z.object({
     bedrift: z.string().min(1, {message: 'Feltet er påkrevd'}),
     kontaktperson: z.string().min(1, {message: 'Feltet er påkrevd'}),
     epost: z.string().email({message: 'Ugyldig e-post'}),
-    phone: z.string().regex(/^\+?\d{1,4}\s?(\d\s?){1,14}$/, 'Ugyldig telefonnummer'),
     time: z.array(z.string()).min(1, {message: 'Du må velge minst ett semester'}),
     type: z.array(z.string()).min(1, {message: 'Du må velge minst en type arrangement'}),
     comment: z.string(),
@@ -45,7 +44,6 @@ export default function ContactForm() {
             bedrift: '',
             kontaktperson: '',
             epost: '',
-            phone: '',
             time: [] as string[],
             type: [] as string[],
             comment: '',
@@ -60,7 +58,6 @@ export default function ContactForm() {
                         bedrift: value.bedrift,
                         kontaktperson: value.kontaktperson,
                         epost: value.epost,
-                        telefon: value.phone,
                     },
                     time: value.time,
                     type: value.type,
@@ -197,30 +194,6 @@ export default function ContactForm() {
                         />
                     </div>
 
-                    <div className="space-y-2 flex flex-col">
-                        <form.Field
-                            name="phone"
-                            children={(field) => {
-                                return (
-                                    <>
-                                        <Label htmlFor={field.name} className="text-sm font-medium">
-                                            Telefon
-                                        </Label>
-                                        <Input
-                                            id={field.name}
-                                            placeholder="+47 987 21 421"
-                                            className="bg-slate-900 border-0 text-white placeholder:text-slate-500"
-                                            value={field.state.value || ''}
-                                            onChange={(e) => field.handleChange(e.target.value)}
-                                            onBlur={field.handleBlur}
-                                        />
-
-                                        <FieldInfo field={field} />
-                                    </>
-                                )
-                            }}
-                        />
-                    </div>
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-2 px-6">

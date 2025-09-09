@@ -19,6 +19,7 @@ export const apiClient = {
 
             if (!response.ok) {
                 const errorMessage = await response.text().catch(() => 'Unknown error');
+                console.error(errorMessage);
                 throw new Error(errorMessage || `GET request failed: ${response.statusText}`);
             }
 

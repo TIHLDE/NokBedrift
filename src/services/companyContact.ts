@@ -3,7 +3,7 @@ import type {CompaniesEmail} from '@/types/CompaniesEmail';
 
 export async function postCompanyContact(data: CompaniesEmail): Promise<{ success: boolean; message: string }> {
     try {
-        const response = await apiClient.post<{ detail?: string }>('accept-form/', {CompaniesEmail: data});
+        const response = await apiClient.post<{ detail?: string }>('accept-form/', data);
         return {
             success: true,
             message: response.data.detail || 'Contact form submitted successfully.',

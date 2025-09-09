@@ -3,7 +3,6 @@ export interface CompaniesEmail {
         bedrift: string;
         kontaktperson: string;
         epost: string;
-        telefon: string;
     };
     time: Array<string>;
     type: Array<string>;

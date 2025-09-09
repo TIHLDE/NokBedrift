@@ -9,21 +9,21 @@ import JobPostListItem from "@/components/JobPostListItem";
 import { Suspense } from "react";
 
 async function JobPostList() {
-  const post = await getJobPosts();
+    const post = await getJobPosts();
 
-  console.log(post);
+    console.log(post);
 
-  if (!post || post.length === 0) {
-    return <p className="text-black">No posts found!</p>;
-  }
+    if (!post || !post.results || post.length === 0) {
+        return <p className="text-black">No posts found!</p>;
+    }
 
-  return (
-    <div className="flex flex-col gap-4">
-      {post.map((jobPost) => (
-        <JobPostListItem jobPost={jobPost} key={jobPost.id} />
-      ))}
-    </div>
-  )
+    return (
+        <div className="flex flex-col gap-4">
+            {post.results.map((post) => (
+                <JobPostListItem key={post.id} jobPost={post} />
+            ))}
+        </div>
+    )
 }
 
 
