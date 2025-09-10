@@ -5,24 +5,23 @@ import Hero from "@/components/hero"
 import Image from "next/image"
 import TihldeLogo from "@/components/miscellaneous/TihldeLogo"
 import { getJobPosts } from "@/services/getJobPosts";
-import JobPostListItem from "@/components/JobPostListItem";
+import JobPostListItem, {JobPostListItemLoading} from "@/components/JobPostListItem";
 import { Suspense } from "react";
+import {JobPost} from "@/types/JobPost";
 
 async function JobPostList() {
   const post = await getJobPosts();
-
-  console.log(post);
 
   if (!post || post.length === 0) {
     return <p className="text-black">No posts found!</p>;
   }
 
   return (
-    <div className="flex flex-col gap-4">
-      {post.map((jobPost) => (
-        <JobPostListItem jobPost={jobPost} key={jobPost.id} />
-      ))}
-    </div>
+      <div className="flex flex-col gap-4">
+          {post.results.map((post: JobPost) => (
+              <JobPostListItem key={post.id} jobPost={post} />
+          ))}
+      </div>
   )
 }
 
@@ -165,7 +164,7 @@ export default function Hjem() {
               Publiser relevante stillinger, internships eller trainee-programmer direkte til våre medlemmer. Sikre deg de beste kandidatene!
             </p>
           </div>
-          <Suspense fallback={<div>JobPostListItemLoading</div>}>
+          <Suspense fallback={<div><JobPostListItemLoading /></div>}>
             <JobPostList />
           </Suspense>
         </div>
