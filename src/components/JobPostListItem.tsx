@@ -1,4 +1,3 @@
-import {parseISO} from 'date-fns';
 import {Badge, CalendarClock, MapPin} from 'lucide-react';
 import {JobPost} from "@/types/JobPost";
 import {getJobpostType} from "@/lib/utils";
@@ -17,9 +16,9 @@ export const JobPostListItem = ({jobPost}: JobPostListItemProps) => {
     return (
         <div className='block bg-muted rounded-lg'>
             <div
-                className='group rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 bg-muted/30'>
+                className='group rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 bg-slate-800'>
                 {/* Responsive layout - vertical on mobile, horizontal on sm and up */}
-                <div className='flex flex-row xl:flex-row h-full'>
+                <div className='flex flex-col xl:flex-row h-full'>
                     {/* Card Image */}
                     <div className='w-full xl:w-3/6'>
                         <AspectRatioImg alt={jobPost.image_alt || jobPost.title} className='w-full !object-cover'
@@ -65,11 +64,11 @@ export default JobPostListItem;
 export const JobPostListItemLoading = () => (
     <div className='space-y-4'>
         {Array.from({length: 3}).map((_, index) => (
-            <div className='rounded-lg overflow-hidden shadow-sm flex flex-col sm:flex-row h-full bg-muted/30'
+            <div className='rounded-lg overflow-hidden shadow-sm flex flex-col sm:flex-row h-full bg-slate-800'
                  key={index}>
                 {/* Skeleton Image */}
                 <div className='w-full sm:w-2/5'>
-                    <Skeleton className='w-full h-[120px]'/>
+                    <Skeleton className='w-full h-[220px]'/>
                 </div>
 
                 {/* Skeleton Content */}
