@@ -14,9 +14,11 @@ import {useForm} from '@tanstack/react-form';
 import type { AnyFieldApi } from '@tanstack/react-form'
 import {toast} from "sonner";
 import {LoaderCircle} from "lucide-react";
-import {useCompanyContact} from "@/hooks/useCompanyContact";
+import {postCompanyContact} from "@/services/companyContact";
+import {useMutation} from "@tanstack/react-query";
 
 function FieldInfo({ field }: { field: AnyFieldApi }) {
+
     return (
         <>
             {field.state.meta.isTouched && !field.state.meta.isValid ? (
@@ -37,7 +39,16 @@ const formSchema = z.object({
 });
 
 export default function ContactForm() {
-    const { sendContact } = useCompanyContact();
+    const mutation = useMutation({
+        mutationFn: postCompanyContact,
+        onSuccess: () => {
+            toast.success("Skjemaet ble sendt!");
+            form.reset();
+        },
+        onError: () => {
+            toast.error("Skjemaet ble ikke sendt!");
+        },
+    });
 
     const form = useForm({
         defaultValues: {
@@ -52,30 +63,20 @@ export default function ContactForm() {
             onSubmit: formSchema,
         },
         onSubmit: async ({value}) => {
-            try {
-                const payload: CompaniesEmail = {
-                    info: {
-                        bedrift: value.bedrift,
-                        kontaktperson: value.kontaktperson,
-                        epost: value.epost,
-                    },
-                    time: value.time,
-                    type: value.type,
-                    comment: value.comment ?? '',
-                };
+            const payload: CompaniesEmail = {
+                info: {
+                    bedrift: value.bedrift,
+                    kontaktperson: value.kontaktperson,
+                    epost: value.epost,
+                },
+                time: value.time,
+                type: value.type,
+                comment: value.comment ?? '',
+            };
 
-                console.log(payload);
+            console.log(payload);
 
-                const response = await sendContact(payload);
-                if (response.success) {
-                    toast.success("Skjemaet ble sendt!");
-                    form.reset();
-                } else {
-                    toast.error(response.message);
-                }
-            } catch (err: any) {
-                toast.error(err.detail);
-            }
+            mutation.mutate(payload)
         },
     });
 
