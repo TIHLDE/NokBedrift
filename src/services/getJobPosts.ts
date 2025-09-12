@@ -1,6 +1,6 @@
 import type {JobPost} from "@/types/JobPost";
 
-const UPSTREAM = process.env.NEXT_PUBLIC_TIHLDE_API_URL;
+const UPSTREAM = process.env.TIHLDE_API_URL;
 
 export async function getJobPosts(endpoint: string): Promise<JobPost[]> {
     const response = await fetch(`${UPSTREAM}${endpoint}`, {

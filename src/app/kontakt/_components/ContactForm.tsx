@@ -18,7 +18,6 @@ import {postCompanyContact} from "@/services/companyContact";
 import {useMutation} from "@tanstack/react-query";
 
 function FieldInfo({ field }: { field: AnyFieldApi }) {
-
     return (
         <>
             {field.state.meta.isTouched && !field.state.meta.isValid ? (

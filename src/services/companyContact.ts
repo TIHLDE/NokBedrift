@@ -1,6 +1,6 @@
 import type {CompaniesEmail} from '@/types/CompaniesEmail';
 
-const UPSTREAM = process.env.NEXT_PUBLIC_TIHLDE_API_URL;
+const UPSTREAM = process.env.TIHLDE_API_URL;
 
 export async function postCompanyContact(data: CompaniesEmail) {
     const response = await fetch(`${UPSTREAM}` + 'accept-form/', {
