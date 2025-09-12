@@ -1,18 +1,19 @@
-import {apiClient} from "@/lib/api-client";
 import type {CompaniesEmail} from '@/types/CompaniesEmail';
 
-export async function postCompanyContact(data: CompaniesEmail): Promise<{ success: boolean; message: string }> {
-    try {
-        const response = await apiClient.post<{ detail?: string }>('accept-form/', {CompaniesEmail: data});
-        return {
-            success: true,
-            message: response.data.detail || 'Contact form submitted successfully.',
-        };
-    } catch (error) {
-        const message = error instanceof Error? error.message : 'Failed to send contact form';
-        return {
-            success: false,
-            message: message,
-        }
+const UPSTREAM = process.env.TIHLDE_API_URL;
+
+export async function postCompanyContact(data: CompaniesEmail) {
+    const response = await fetch(`${UPSTREAM}` + 'accept-form/', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to send mail");
     }
+
+    return response.json();
 }

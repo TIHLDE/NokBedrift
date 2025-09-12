@@ -14,7 +14,8 @@ import {useForm} from '@tanstack/react-form';
 import type { AnyFieldApi } from '@tanstack/react-form'
 import {toast} from "sonner";
 import {LoaderCircle} from "lucide-react";
-import {useCompanyContact} from "@/hooks/useCompanyContact";
+import {postCompanyContact} from "@/services/companyContact";
+import {useMutation} from "@tanstack/react-query";
 
 function FieldInfo({ field }: { field: AnyFieldApi }) {
     return (
@@ -31,21 +32,28 @@ const formSchema = z.object({
     bedrift: z.string().min(1, {message: 'Feltet er påkrevd'}),
     kontaktperson: z.string().min(1, {message: 'Feltet er påkrevd'}),
     epost: z.string().email({message: 'Ugyldig e-post'}),
-    phone: z.string().regex(/^\+?\d{1,4}\s?(\d\s?){1,14}$/, 'Ugyldig telefonnummer'),
     time: z.array(z.string()).min(1, {message: 'Du må velge minst ett semester'}),
     type: z.array(z.string()).min(1, {message: 'Du må velge minst en type arrangement'}),
     comment: z.string(),
 });
 
 export default function ContactForm() {
-    const { sendContact } = useCompanyContact();
+    const mutation = useMutation({
+        mutationFn: postCompanyContact,
+        onSuccess: () => {
+            toast.success("Skjemaet ble sendt!");
+            form.reset();
+        },
+        onError: () => {
+            toast.error("Skjemaet ble ikke sendt!");
+        },
+    });
 
     const form = useForm({
         defaultValues: {
             bedrift: '',
             kontaktperson: '',
             epost: '',
-            phone: '',
             time: [] as string[],
             type: [] as string[],
             comment: '',
@@ -54,31 +62,20 @@ export default function ContactForm() {
             onSubmit: formSchema,
         },
         onSubmit: async ({value}) => {
-            try {
-                const payload: CompaniesEmail = {
-                    info: {
-                        bedrift: value.bedrift,
-                        kontaktperson: value.kontaktperson,
-                        epost: value.epost,
-                        telefon: value.phone,
-                    },
-                    time: value.time,
-                    type: value.type,
-                    comment: value.comment ?? '',
-                };
+            const payload: CompaniesEmail = {
+                info: {
+                    bedrift: value.bedrift,
+                    kontaktperson: value.kontaktperson,
+                    epost: value.epost,
+                },
+                time: value.time,
+                type: value.type,
+                comment: value.comment ?? '',
+            };
 
-                console.log(payload);
+            console.log(payload);
 
-                const response = await sendContact(payload);
-                if (response.success) {
-                    toast.success("Skjemaet ble sendt!");
-                    form.reset();
-                } else {
-                    toast.error(response.message);
-                }
-            } catch (err: any) {
-                toast.error(err.detail);
-            }
+            mutation.mutate(payload)
         },
     });
 
@@ -197,30 +194,6 @@ export default function ContactForm() {
                         />
                     </div>
 
-                    <div className="space-y-2 flex flex-col">
-                        <form.Field
-                            name="phone"
-                            children={(field) => {
-                                return (
-                                    <>
-                                        <Label htmlFor={field.name} className="text-sm font-medium">
-                                            Telefon
-                                        </Label>
-                                        <Input
-                                            id={field.name}
-                                            placeholder="+47 987 21 421"
-                                            className="bg-slate-900 border-0 text-white placeholder:text-slate-500"
-                                            value={field.state.value || ''}
-                                            onChange={(e) => field.handleChange(e.target.value)}
-                                            onBlur={field.handleBlur}
-                                        />
-
-                                        <FieldInfo field={field} />
-                                    </>
-                                )
-                            }}
-                        />
-                    </div>
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-2 px-6">
