@@ -1,8 +1,10 @@
+'use client';
+
 import {Badge, CalendarClock, MapPin} from 'lucide-react';
 import {JobPost} from "@/types/JobPost";
 import {getJobpostType} from "@/lib/utils";
 import {Skeleton} from "@/components/ui/skeleton";
-import AspectRatioImg from "@/components/miscellaneous/AspectRatioImg";
+import Image from 'next/image';
 
 export type JobPostListItemProps = {
     jobPost: JobPost;
@@ -21,8 +23,14 @@ export const JobPostListItem = ({jobPost}: JobPostListItemProps) => {
                 <div className='flex flex-col xl:flex-row h-full'>
                     {/* Card Image */}
                     <div className='w-full xl:w-3/6'>
-                        <AspectRatioImg alt={jobPost.image_alt || jobPost.title} className='w-full !object-cover'
-                                        ratio={'16:7'} src={jobPost.image}/>
+                        <Image
+                            alt={jobPost.image_alt || jobPost.title}
+                            className="w-full !object-cover aspect-[16/7]"
+                            width={672}
+                            height={294}
+                            src={jobPost.image}
+                            onError={(e) => (e.currentTarget.src = '/img/TihldeBackground.jpg')}
+                        />
                     </div>
 
                     {/* Card Content */}
