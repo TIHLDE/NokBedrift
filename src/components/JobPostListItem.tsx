@@ -1,10 +1,14 @@
+"use client"
+
+
 import {format} from 'date-fns';
 import {nb} from "date-fns/locale";
-import {Badge, CalendarClock, MapPin} from 'lucide-react';
+import {CalendarClock, MapPin} from 'lucide-react';
 import {JobPost} from "@/types/JobPost";
 import {getJobpostType} from "@/lib/utils";
 import {Skeleton} from "@/components/ui/skeleton";
-import AspectRatioImg from "@/components/miscellaneous/AspectRatioImg";
+import { Badge } from '@/components/ui/badge';
+import Image from 'next/image';
 
 export type JobPostListItemProps = {
     jobPost: JobPost;
@@ -22,11 +26,17 @@ export const JobPostListItem = ({jobPost}: JobPostListItemProps) => {
             <div
                 className='group rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 bg-muted/30'>
                 {/* Responsive layout - vertical on mobile, horizontal on sm and up */}
-                <div className='flex flex-col xl:flex-row h-full'>
+                <div className='flex flex-col 2xl:flex-row h-full'>
                     {/* Card Image */}
-                    <div className='w-full xl:w-3/6'>
-                        <AspectRatioImg alt={jobPost.image_alt || jobPost.title} className='w-full !object-cover'
-                                        ratio={'16:7'} src={jobPost.image}/>
+                    <div className='w-full 2xl:w-1/2'>
+                        <Image
+                            alt={jobPost.image_alt || jobPost.title}
+                            className="w-full !object-cover aspect-[16/7]"
+                            width={672}
+                            height={294}
+                            src={jobPost.image}
+                            onError={(e) => (e.currentTarget.src = '/img/TihldeBackground.jpg')}
+                        />
                     </div>
 
                     {/* Card Content */}

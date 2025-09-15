@@ -18,7 +18,7 @@ async function JobPostList() {
     }
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="w-full grid md:grid-cols-2 2xl:grid-cols-1 gap-4">
             {post.results.map((post) => (
                 <JobPostListItem jobPost={post} />
             ))}
