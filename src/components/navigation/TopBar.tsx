@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import TihldeLogo from '../miscellaneous/TihldeLogo';
-import {BellIcon, MoonIcon, SunIcon} from "lucide-react";
+import { BellIcon, MoonIcon, SunIcon } from "lucide-react";
 
 const navigationItems = [
   { id: 'home', text: 'Hjem', to: '/' },
@@ -18,18 +18,30 @@ const navigationItems = [
 const TopBar: React.FC = () => {
   const [isOnTop, setIsOnTop] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
 
-  // Sjekk om brukeren har en lagret tema-preferanse ved oppstart
+  // Initialize theme on mount to prevent hydration mismatches
   useEffect(() => {
+    setIsMounted(true);
+
+    // Check for saved theme preference or default to system preference
     const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'dark') {
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (storedTheme === 'dark' || (!storedTheme && systemPrefersDark)) {
       setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
-  // Oppdater klassen på <html> og lagre tema-preferansen når dark mode endres
+  // Update theme when dark mode state changes
   useEffect(() => {
+    if (!isMounted) return;
+
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
@@ -37,7 +49,7 @@ const TopBar: React.FC = () => {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
-  }, [isDarkMode]);
+  }, [isDarkMode, isMounted]);
 
   useEffect(() => {
     const handleScroll = () => setIsOnTop(window.scrollY < 20);
@@ -76,7 +88,9 @@ const TopBar: React.FC = () => {
         </div>
         <div className="flex gap-4">
           <button type="button" onClick={toggleDarkMode} aria-label="Toggle dark mode">
-            {isDarkMode ? (
+            {!isMounted ? (
+              <div className="h-6 w-6" /> // Placeholder to prevent layout shift
+            ) : isDarkMode ? (
               <SunIcon className="h-6 w-6 cursor-pointer text-gray-600 dark:text-gray-300" />
             ) : (
               <MoonIcon className="h-6 w-6 cursor-pointer text-gray-600 dark:text-gray-300" />
