@@ -64,11 +64,11 @@ const TopBar: React.FC = () => {
         isOnTop ? 'bg-transparent' : 'bg-background/95 dark:bg-background/60',
       )}
     >
-      <nav className="flex items-center justify-between py-3 px-8 w-full">
-        <Link href="/" aria-label="Til forsiden" className="text-logo font-bold text-2xl flex items-center gap-2">
+      <nav className="grid grid-cols-3 items-center py-3 px-8 w-full">
+        <Link href="/" aria-label="Til forsiden" className="text-logo font-bold text-2xl flex items-center justify-self-start gap-2">
           <TihldeLogo size="large" className="w-44 h-auto" />
         </Link>
-        <div className="hidden sm:flex gap-6">
+        <div className="hidden sm:flex gap-6 justify-self-center">
           {navigationItems.map((item) => (
             <Link
               key={item.id}
@@ -84,17 +84,16 @@ const TopBar: React.FC = () => {
             </Link>
           ))}
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 justify-self-end">
           <button type="button" onClick={toggleDarkMode} aria-label="Toggle dark mode">
             {!isMounted ? (
-              <div className="h-6 w-6" /> // Placeholder to prevent layout shift
+              <div className="h-6 w-6" />
             ) : isDarkMode ? (
               <SunIcon className="h-6 w-6 cursor-pointer text-textSecondary" />
             ) : (
               <MoonIcon className="h-6 w-6 cursor-pointer text-textSecondary" />
             )}
           </button>
-          <BellIcon className="h-6 w-6 cursor-pointer text-textSecondary" />
         </div>
       </nav>
     </header>
