@@ -104,10 +104,10 @@ export default function ContactForm() {
     ];
 
     return (
-        <Card className="border-0 overflow-hidden bg-slate-800/50">
+        <Card className="border-0 overflow-hidden">
             <div className="px-6 pt-8">
-                <h2 className="text-2xl font-bold">Ta kontakt med oss</h2>
-                <p className="text-sm text-slate-300">Fyll ut kontaktskjemaet, så hører du fra oss straks.</p>
+                <h2 className="text-2xl font-bold text-foreground-primary">Ta kontakt med oss</h2>
+                <p className="text-sm text-foreground-secondary">Fyll ut kontaktskjemaet, så hører du fra oss straks.</p>
             </div>
 
             <form
@@ -131,7 +131,7 @@ export default function ContactForm() {
                                         <Input
                                             id={field.name}
                                             placeholder="Firmanavn"
-                                            className="bg-slate-900 border-0 text-white placeholder:text-slate-500"
+                                            className="bg-card-background border-0 text-foreground-primary placeholder:text-foreground-secondary"
                                             value={field.state.value || ''}
                                             onChange={(e) => field.handleChange(e.target.value)}
                                             onBlur={field.handleBlur}
@@ -155,8 +155,8 @@ export default function ContactForm() {
                                         </Label>
                                         <Input
                                             id={field.name}
-                                            placeholder="Ola Nordmanne"
-                                            className="bg-slate-900 border-0 text-white placeholder:text-slate-500"
+                                            placeholder="Ola Nordmann"
+                                            className="bg-card-background border-0 text-foreground-primary placeholder:text-foreground-secondary"
                                             value={field.state.value || ''}
                                             onChange={(e) => field.handleChange(e.target.value)}
                                             onBlur={field.handleBlur}
@@ -181,7 +181,7 @@ export default function ContactForm() {
                                         <Input
                                             id={field.name}
                                             placeholder="eksempel@mail.com"
-                                            className="bg-slate-900 border-0 text-white placeholder:text-slate-500"
+                                            className="bg-card-background border-0 text-foreground-primary placeholder:text-foreground-secondary"
                                             value={field.state.value || ''}
                                             onChange={(e) => field.handleChange(e.target.value)}
                                             onBlur={field.handleBlur}
@@ -204,11 +204,8 @@ export default function ContactForm() {
                             children={(field) => {
                                 return (
                                     <>
-                                        <Label htmlFor={field.name} className="text-sm font-medium">
-                                           Tidsramme <span className="text-red-500">*</span>
-                                        </Label>
                                         <MultiCheckbox
-                                            label="Semester"
+                                            label="Tidsramme"
                                             options={semesters}
                                             selected={field.state.value || []}
                                             onChange={(newVal) => field.handleChange(newVal)}
@@ -228,11 +225,8 @@ export default function ContactForm() {
                             children={(field) => {
                                 return (
                                     <>
-                                        <Label htmlFor={field.name} className="text-sm font-medium">
-                                            Interesser <span className="text-red-500">*</span>
-                                        </Label>
                                         <MultiCheckbox
-                                            label="Arrangementer"
+                                            label="Type arrangement"
                                             options={types}
                                             selected={field.state.value || []}
                                             onChange={(newVal) => field.handleChange(newVal)}
@@ -253,13 +247,13 @@ export default function ContactForm() {
                         children={(field) => {
                             return (
                                 <>
-                                    <Label htmlFor={field.name} className="text-sm font-medium">
+                                    <Label htmlFor={field.name} className="text-sm font-medium text-foreground-primary">
                                        Melding
                                     </Label>
                                     <Textarea
                                         id={field.name}
                                         placeholder="Utfyllende beskrivelse"
-                                        className="bg-slate-900 border-0 h-32 text-white placeholder:text-slate-500"
+                                        className="bg-card-background border-0 h-32 text-foreground-primary placeholder:text-foreground-secondary"
                                         value={field.state.value || ''}
                                         onChange={(e) => field.handleChange(e.target.value)}
                                         onBlur={field.handleBlur}
@@ -278,12 +272,12 @@ export default function ContactForm() {
                         children={([canSubmit, isSubmitting]) => (
                             <Button
                                 type="submit"
-                                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700"
+                                className="w-full"
                                 disabled={!canSubmit}
                             >
                                 {isSubmitting ? (
                                     <>
-                                    <p>Sender</p> <LoaderCircle className="animate-spin w-12 h-12 text-white" />
+                                    <p>Sender</p> <LoaderCircle className="animate-spin w-12 h-12 text-button-foreground" />
                                     </>
                                 ) : ('Send inn')}
                             </Button>

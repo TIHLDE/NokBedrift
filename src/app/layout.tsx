@@ -2,6 +2,9 @@ import "../styles/globals.css";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import Providers from "./providers";
+import Navbar from "@/components/navigation/TopBar";
+import Footer from "@/components/navigation/Footer";
+import BottomBar from "@/components/navigation/BottomBar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,6 +18,8 @@ export const metadata: Metadata = {
   description: "Linjeforeningen for datastudenter ved NTNU",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,9 +27,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className={`antialiased ${inter.variable}`}>
         <Providers>
-            {children}
+          <div className="relative flex min-h-dvh flex-col items-center">
+            <Navbar />
+            <main className="w-full flex-1 flex flex-col items-center">
+              {children}
+            </main>
+            <BottomBar />
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>

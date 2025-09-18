@@ -1,57 +1,13 @@
-'use client';
-
-import Navbar from "@/components/navigation/TopBar"
-import Footer from "@/components/navigation/Footer"
-import BottomBar from "@/components/navigation/BottomBar"
 import Hero from "@/components/hero"
 import Image from "next/image"
 import TihldeLogo from "@/components/miscellaneous/TihldeLogo"
-import {getJobPosts} from "@/services/getJobPosts";
-import JobPostListItem, {JobPostListItemLoading} from "@/components/JobPostListItem";
-import {Suspense} from "react";
-import {useQuery} from "@tanstack/react-query";
-import {JobPost} from "@/types/JobPost";
-import {Card} from "@/components/ui/card";
-import {Bug} from "lucide-react";
-
-function JobPostList() {
-    const {isPending, isError, data, error} = useQuery<JobPost[]>({
-        queryKey: ['posts'],
-        staleTime: 100000 * 60,
-        retry: 0,
-        queryFn: () => getJobPosts('/jobposts/'),
-    })
-
-    if (isPending) return <JobPostListItemLoading/>;
-
-    if (isError) {
-        const message = error instanceof Error ? error.message : String(error);
-        return (
-            <Card className="gap-10 bg-slate-800 h-80 border-slate-700 flex justify-center items-center flex-col">
-                <span className="text-3xl text-slate-400">Error: {message}</span>
-                <Bug size={64} className="text-slate-400"/>
-            </Card>
-        )
-    }
-
-    if (!data || data.length === 0) {
-        return <span>No posts found!</span>;
-    }
-
-    return (
-        <div className="flex flex-col gap-4">
-            {data.map((post: JobPost) => (
-                <JobPostListItem key={post.id} jobPost={post}/>
-            ))}
-        </div>
-    );
-}
+import { Suspense } from "react";
+import JobPostList from "@/components/JobPostList";
 
 
 export default function Hjem() {
     return (
         <div className="relative flex flex-col items-center justify-center">
-            <Navbar/>
             <div
                 aria-hidden="true"
                 className="absolute inset-x-0 top-140 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -64,7 +20,7 @@ export default function Hjem() {
                     className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-cyan-500 to-indigo-700 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
                 />
             </div>
-            <Hero/>
+            <Hero />
             {/* Om TIHLDE */}
             <section className="max-w-5xl px-4 py-16 h-auto justify-center">
                 <div className="grid md:gap-8 md:grid-cols-5 place-items-center">
@@ -79,7 +35,7 @@ export default function Hjem() {
                     <div className="flex items-center justify-center md:col-span-3">
                         {/* Eksempelbilde eller annet innhold */}
                         <div className="relative w-full py-4">
-                            <TihldeLogo size="large" className="w-full h-auto"/>
+                            <TihldeLogo size="large" className="w-full h-auto" />
                         </div>
                     </div>
                 </div>
@@ -113,7 +69,7 @@ export default function Hjem() {
                         {/* Eksempelbilde eller annet innhold */}
                         <div className="relative w-full">
                             <Image src="/bedpres.jpeg" alt="Bedriftspresentasjoner" width={603} height={398}
-                                   className="h-auto  rounded-lg"/>
+                                className="h-auto  rounded-lg" />
                         </div>
                     </div>
                 </div>
@@ -146,7 +102,7 @@ export default function Hjem() {
                         {/* Eksempelbilde eller annet innhold */}
                         <div className="relative w-full">
                             <Image src="/kurs-workshop.jpeg" alt="Kurs og workshops" width={603} height={398}
-                                   className="h-auto  rounded-lg"/>
+                                className="h-auto  rounded-lg" />
                         </div>
                     </div>
                 </div>
@@ -165,7 +121,7 @@ export default function Hjem() {
                         {/* Eksempelbilde eller annet innhold */}
                         <div className="relative w-full">
                             <Image src="/bedriftsbesøk.jpeg" alt="Bedriftsbesøk" width={603} height={398}
-                                   className="h-auto rounded-lg"/>
+                                className="h-auto rounded-lg" />
                         </div>
                     </div>
                 </div>
@@ -185,7 +141,7 @@ export default function Hjem() {
                         {/* Eksempelbilde eller annet innhold */}
                         <div className="relative w-full">
                             <Image src="/bedpres.jpeg" alt="Bedriftsekskursjon" width={603} height={398}
-                                   className="h-auto  rounded-lg"/>
+                                className="h-auto  rounded-lg" />
                         </div>
                     </div>
                 </div>
@@ -201,7 +157,7 @@ export default function Hjem() {
                         </p>
                     </div>
                     <Suspense fallback={<div>JobPostListItemLoading</div>}>
-                        <JobPostList/>
+                        <JobPostList />
                     </Suspense>
                 </div>
             </section>
@@ -261,9 +217,6 @@ export default function Hjem() {
                     </div>
                 </div>
             </section>
-
-            <BottomBar/>
-            <Footer/>
         </div>
     )
 }

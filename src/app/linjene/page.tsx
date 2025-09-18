@@ -1,9 +1,3 @@
-"use client"
-
-import Navbar from "@/components/navigation/TopBar"
-import BottomBar from "@/components/navigation/BottomBar"
-import Footer from "@/components/navigation/Footer"
-
 const linjer = [
   {
     title: "Digital forretningsutvikling",
@@ -27,14 +21,12 @@ const linjer = [
   },
 ];
 
-
 export default function Linjene() {
   return (
     <div className="flex flex-col items-center justify-center">
-      <Navbar />
       {/* Om TIHLDE Linjene */}
       <section id="linjene" className="max-w-5xl px-4 py-16 mt-32">
-        <h1 className="mb-4 text-5xl font-bold md:text-6xl">Linjene</h1>
+        <h1 className="mb-4 text-5xl font-bold md:text-6xl text-foreground-primary">Linjene</h1>
         <div className="flex flex-col gap-8 mt-8">
           {linjer.map((linje) => (
             <div
@@ -42,16 +34,13 @@ export default function Linjene() {
               className="p-6"
             >
               <h3 className="mb-2 text-xl font-semibold">{linje.title}</h3>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-foreground-secondary leading-relaxed">
                 {linje.description}
               </p>
             </div>
           ))}
         </div>
       </section>
-
-      <BottomBar />
-      <Footer />
     </div>
   )
 }

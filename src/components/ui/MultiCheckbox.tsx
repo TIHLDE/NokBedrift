@@ -23,7 +23,7 @@ export default function MultiCheckbox({
 
     return (
         <fieldset>
-            <legend className="font-medium">{label}</legend>
+            <legend className="font-medium text-foreground-primary">{label}</legend>
             <div className="grid grid-cols-2 gap-2 mt-2">
                 {options.map((opt) => (
                     <label key={opt} className="flex items-center space-x-2">
@@ -31,11 +31,11 @@ export default function MultiCheckbox({
                             checked={selected.includes(opt)} onChange={() => toggle(opt)}
                             onCheckedChange={() => toggle(opt)}
                         />
-                        <span>{opt}</span>
+                        <span className="text-foreground-secondary">{opt}</span>
                     </label>
                 ))}
             </div>
-            {error && <p className="text-sm text-red-600 mt-1">{error}</p>}
+            {error && <p className="text-sm text-red-600 mt-1 text-foreground-primary">{error}</p>}
         </fieldset>
     );
 }

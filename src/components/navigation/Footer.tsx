@@ -57,13 +57,25 @@ const Footer = () => {
         {/* Right side - Nito logo */}
         <div className='flex flex-col items-center md:items-start space-y-4'>
           <h3 className='text-2xl font-semibold text-center'>Samarbeid</h3>
-          <Image
-            src={'/nito-logo-hvit.png'}
-            alt='NITO Logo'
-            width={200}
-            height={46}
-            className=''
-          />
+          {/* Show light logo in light mode, white logo in dark mode */}
+          <div className='relative h-[46px] w-[200px]'>
+            <Image
+              src={'/nito_logo_primaer_gronn_dyp.png'}
+              alt='NITO Logo light'
+              fill
+              className='object-contain block dark:hidden'
+              sizes='200px'
+              priority={false}
+            />
+            <Image
+              src={'/nito-logo-hvit.png'}
+              alt='NITO Logo dark'
+              fill
+              className='object-contain hidden dark:block'
+              sizes='200px'
+              priority={false}
+            />
+          </div>
         </div>
       </div>
     </div>
