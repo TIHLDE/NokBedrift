@@ -24,7 +24,7 @@ const BottomBar: React.FC = () => {
             href={navigationItem.to}
             className={clsx(
               'flex flex-col items-center text-xs font-medium transition-colors',
-              pathname === navigationItem.to ? 'font-bold text-primary' : 'text-gray-600 dark:text-gray-400'
+              pathname === navigationItem.to ? 'font-bold text-foreground-primary' : 'text-foreground-secondary'
             )}
           >
             {navigationItem.icon}

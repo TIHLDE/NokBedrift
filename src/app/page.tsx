@@ -69,8 +69,8 @@ export default function Hjem() {
             <section className="max-w-5xl px-4 py-16 h-auto justify-center">
                 <div className="grid md:gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
-                        <h2 className="mb-2 text-3xl font-bold">Om TIHLDE</h2>
-                        <p className="mb-4 text-gray-300 text-lg leading-relaxed">
+                        <h2 className="mb-2 text-3xl font-bold text-foreground-primary">Om TIHLDE</h2>
+                        <p className="mb-4 text-foreground-secondary text-lg leading-relaxed">
                             Vi er linjeforeningen for datastudenter, og vårt mål er å knytte tettere bånd mellom
                             studenter og næringslivet. Gjennom våre aktiviteter får bedrifter muligheten til å nå
                             motiverte studenter som søker utfordringer og nye muligheter.
@@ -102,8 +102,8 @@ export default function Hjem() {
             <section className="max-w-5xl px-4 py-16 h-auto justify-center">
                 <div className="grid gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
-                        <h2 className="mb-2 text-3xl font-bold">Bedriftspresentasjoner</h2>
-                        <p className="mb-4 text-gray-300 text-lg leading-relaxed">
+                        <h2 className="mb-2 text-3xl font-bold text-foreground-primary">Bedriftspresentasjoner</h2>
+                        <p className="mb-4 text-foreground-secondary text-lg leading-relaxed">
                             En bedriftspresentasjon lar dere introdusere organisasjonen for TIHLDE-studentene, vise hva
                             dere tilbyr og hvordan dere jobber. Etter presentasjonen følger middag og mingling med
                             bedriftsrepresentanter.
@@ -136,7 +136,7 @@ export default function Hjem() {
                 <div className="grid gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
                         <h2 className="mb-2 text-3xl font-bold">Kurs og workshops</h2>
-                        <p className="mb-4 text-gray-300 text-lg leading-relaxed">
+                        <p className="mb-4 text-foreground-secondary text-lg leading-relaxed">
                             Et kurs introduserer studentene for relevante faglige erfaringer til arbeidslivet. Det kan
                             starte med en kort presentasjon av bedriften. Vi legger til rette for matservering på skolen
                             eller restaurantbesøk etter kurset.
@@ -156,7 +156,7 @@ export default function Hjem() {
                 <div className="grid gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
                         <h2 className="mb-2 text-3xl font-bold">Bedriftsbesøk</h2>
-                        <p className="mb-4 text-gray-300 text-lg leading-relaxed">
+                        <p className="mb-4 text-foreground-secondary text-lg leading-relaxed">
                             Under et bedriftsbesøk besøker studentene deres lokaler for et valgfritt arrangement. Dette
                             gir dere en mulighet til å vise frem arbeidsplassen og bli bedre kjent med dem.
                         </p>
@@ -175,7 +175,7 @@ export default function Hjem() {
                 <div className="grid gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
                         <h2 className="mb-2 text-3xl font-bold">Bedriftsekskursjon</h2>
-                        <p className="mb-4 text-gray-300 text-lg leading-relaxed">
+                        <p className="mb-4 text-foreground-secondary text-lg leading-relaxed">
                             Hver høst arrangerer TIHLDE en bedriftsekskursjon til Oslo med 60 studenter. Dette gir
                             bedrifter en god mulighet til å vise frem sine lokaler og bli bedre kjent med studentene.
                             Etter besøket legger vi til rette for bespisning og mingling.
@@ -195,7 +195,7 @@ export default function Hjem() {
                 <div className="">
                     <div className="md:col-span-2">
                         <h2 className="mb-2 text-3xl font-bold">Annonser</h2>
-                        <p className="mb-4 text-gray-300 text-lg leading-relaxed">
+                        <p className="mb-4 text-foreground-secondary text-lg leading-relaxed">
                             Publiser relevante stillinger, internships eller trainee-programmer direkte til våre
                             medlemmer. Sikre deg de beste kandidatene!
                         </p>
@@ -221,14 +221,14 @@ export default function Hjem() {
 
             {/* Linjene */}
             < section id="linjene" className="max-w-5xl px-4 py-16">
-                <h2 className="mb-2 text-3xl font-bold">Linjene</h2>
+                <h2 className="mb-2 text-3xl font-bold text-foreground-primary">Linjene</h2>
                 <div className="grid gap-8 md:grid-cols-2">
                     <div className="rounded  -gray-800 p-4">
 
                         <h3 className="mb-2 text-xl font-semibold">
                             Digital forretningsutvikling
                         </h3>
-                        <p className="text-gray-300">
+                        <p className="text-foreground-secondary">
                             I krysningen mellom informatikk, økonomi, marked, organisasjon og ledelse møter du de som
                             studerer digital forretningsutvikling.
                         </p>
@@ -238,14 +238,14 @@ export default function Hjem() {
                         <h3 className="mb-2 text-xl font-semibold">
                             Dataingeniør
                         </h3>
-                        <p className="text-gray-300">
+                        <p className="text-foreground-secondary">
                             Studiet gir et solid grunnlag for systemutvikling av digitale løsninger, med fokus på
                             funksjonalitet, sikkerhet og brukertilpasning.
                         </p>
                     </div>
                     <div className="p-4">
                         <h3 className="mb-2 text-xl font-semibold">Digital infrastruktur og cybersikkerhet</h3>
-                        <p className="text-gray-300">
+                        <p className="text-foreground-secondary">
                             Studiet kombinerer informatikk med praktiske ferdigheter innen digital infrastruktur og
                             sikkerhet.
                         </p>
@@ -254,7 +254,7 @@ export default function Hjem() {
                         <h3 className="mb-2 text-xl font-semibold">
                             Digital transformasjon
                         </h3>
-                        <p className="text-gray-300">
+                        <p className="text-foreground-secondary">
                             Studiet gir avansert kompetanse i digital transformasjon, med fokus på hvordan virksomheter
                             kan utnytte digitale teknologier for strategisk utvikling og effektivisering.
                         </p>

@@ -10,9 +10,7 @@ import { BellIcon, MoonIcon, SunIcon } from "lucide-react";
 const navigationItems = [
   { id: 'home', text: 'Hjem', to: '/' },
   { id: 'linjene', text: 'Linjene', to: '/linjene' },
-  { id: 'bedpres', text: 'Bedriftspresentasjon', to: '/bedriftspresentasjon' },
-  { id: 'stillinger', text: 'Annonser', to: '/annonser' },
-  { id: 'kontakt', text: 'Kontakt oss', to: '/kontakt' },
+  { id: 'kontakt', text: 'Kontakt', to: '/kontakt' },
 ];
 
 const TopBar: React.FC = () => {
@@ -67,7 +65,7 @@ const TopBar: React.FC = () => {
       )}
     >
       <nav className="flex items-center justify-between py-3 px-8 w-full">
-        <Link href="/" aria-label="Til forsiden" className="text-primary font-bold text-2xl flex items-center gap-2">
+        <Link href="/" aria-label="Til forsiden" className="text-logo font-bold text-2xl flex items-center gap-2">
           <TihldeLogo size="large" className="w-44 h-auto" />
         </Link>
         <div className="hidden sm:flex gap-6">
@@ -76,10 +74,10 @@ const TopBar: React.FC = () => {
               key={item.id}
               href={item.to}
               className={clsx(
-                'text-sm font-medium transition-colors dark:text-gray-300 dark:hover:text-white',
+                'text-sm font-medium transition-colors text-foreground-secondary hover:text-foreground-primary',
                 pathname === item.to
-                  ? 'font-bold text-muted-foreground dark:text-white'
-                  : 'text-gray-600 dark:text-gray-400',
+                  ? 'font-bold text-foreground-primary'
+                  : '',
               )}
             >
               {item.text}
@@ -91,12 +89,12 @@ const TopBar: React.FC = () => {
             {!isMounted ? (
               <div className="h-6 w-6" /> // Placeholder to prevent layout shift
             ) : isDarkMode ? (
-              <SunIcon className="h-6 w-6 cursor-pointer text-gray-600 dark:text-gray-300" />
+              <SunIcon className="h-6 w-6 cursor-pointer text-textSecondary" />
             ) : (
-              <MoonIcon className="h-6 w-6 cursor-pointer text-gray-600 dark:text-gray-300" />
+              <MoonIcon className="h-6 w-6 cursor-pointer text-textSecondary" />
             )}
           </button>
-          <BellIcon className="h-6 w-6 cursor-pointer text-gray-600 dark:text-gray-300" />
+          <BellIcon className="h-6 w-6 cursor-pointer text-textSecondary" />
         </div>
       </nav>
     </header>

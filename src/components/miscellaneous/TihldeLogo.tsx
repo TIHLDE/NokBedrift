@@ -9,7 +9,7 @@ export type TihldeLogoProps = {
 const TihldeLogo = ({ size, className }: TihldeLogoProps) => {
   return (
     <svg
-      className={cn('m-auto block overflow-visible text-black dark:text-white', className)}
+      className={cn('m-auto block overflow-visible text-logo', className)}
       height='400'
       id='svg2'
       version='1.1'
@@ -88,7 +88,7 @@ const TihldeLogo = ({ size, className }: TihldeLogoProps) => {
         </g>
       </g>
       {/* Show snow if between December 1st and January 6th */}
-        {/*{(isAfterDateOfYear(11, 1) || isBeforeDateOfYear(0, 6)) && <Santa />}*/}
+      {/*{(isAfterDateOfYear(11, 1) || isBeforeDateOfYear(0, 6)) && <Santa />}*/}
     </svg>
   );
 };
