@@ -1,3 +1,7 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
+
 const linjer = [
   {
     title: "Digital forretningsutvikling",
@@ -29,16 +33,35 @@ export default function Linjene() {
         <h1 className="mb-4 text-5xl font-bold md:text-6xl text-foreground-primary">Linjene</h1>
         <div className="flex flex-col gap-8 mt-8">
           {linjer.map((linje) => (
-            <div
+            <Card
               key={linje.title}
-              className="p-6"
             >
-              <h3 className="mb-2 text-xl font-semibold">{linje.title}</h3>
+              <CardHeader>
+                <CardTitle className="mb-2 text-xl font-semibold">{linje.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
               <p className="text-foreground-secondary leading-relaxed">
                 {linje.description}
               </p>
-            </div>
+              </CardContent>
+            </Card>
           ))}
+        </div>
+      </section>
+      <section className="max-w-5xl px-4 py-16 flex flex-col items-center justify-center text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground-primary">Ta kontakt med oss</h2>
+        {/* call to action section here */}
+        <div className="flex flex-col gap-4 mt-4 max-w-xl">
+          <p className="text-foreground-secondary text-lg leading-relaxed">
+            Vi er linjeforeningen for datastudenter, og vårt mål
+            er å knytte tettere bånd mellom studenter og
+            næringslivet. Gjennom våre aktiviteter får bedrifter
+            muligheten til å nå motiverte studenter som søker
+            utfordringer og nye muligheter.
+          </p>
+          <Button className="w-fit mx-auto mt-6">
+            <Link href="/kontakt">Kontakt oss</Link>
+          </Button>
         </div>
       </section>
     </div>

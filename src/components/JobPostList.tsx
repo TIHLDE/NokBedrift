@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getJobPosts } from "@/services/getJobPosts";
 import JobPostListItem, { JobPostListItemLoading } from "@/components/JobPostListItem";
 import { JobPost } from "@/types/JobPost";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bug } from "lucide-react";
 
 export default function JobPostList() {
@@ -20,9 +20,13 @@ export default function JobPostList() {
     if (isError) {
         const message = error instanceof Error ? error.message : String(error);
         return (
-            <Card className="gap-10 bg-slate-800 h-80 border-slate-700 flex justify-center items-center flex-col">
-                <span className="text-3xl text-slate-400">Error: {message}</span>
-                <Bug size={64} className="text-slate-400" />
+            <Card className="h-80 flex justify-center items-center">
+                <CardContent className="flex flex-col items-center justify-center gap-10">
+                    <CardHeader className="text-center">
+                        <CardTitle className="text-3xl text-slate-400">Error: {message}</CardTitle>
+                    </CardHeader>
+                    <Bug size={64} className="text-slate-400" />
+                </CardContent>
             </Card>
         );
     }

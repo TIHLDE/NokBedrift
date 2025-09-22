@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import TihldeLogo from '../miscellaneous/TihldeLogo';
-import { BellIcon, MoonIcon, SunIcon } from "lucide-react";
+import { MoonIcon, SunIcon } from "lucide-react";
+import { useTheme } from '@/components/providers/ThemeProvider';
 
 const navigationItems = [
   { id: 'home', text: 'Hjem', to: '/' },
@@ -15,39 +16,8 @@ const navigationItems = [
 
 const TopBar: React.FC = () => {
   const [isOnTop, setIsOnTop] = useState(true);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
-
-  // Initialize theme on mount to prevent hydration mismatches
-  useEffect(() => {
-    setIsMounted(true);
-
-    // Check for saved theme preference or default to system preference
-    const storedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (storedTheme === 'dark' || (!storedTheme && systemPrefersDark)) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
-    } else {
-      setIsDarkMode(false);
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
-
-  // Update theme when dark mode state changes
-  useEffect(() => {
-    if (!isMounted) return;
-
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDarkMode, isMounted]);
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setIsOnTop(window.scrollY < 20);
@@ -55,7 +25,18 @@ const TopBar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleDarkMode = () => setIsDarkMode(prev => !prev);
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else if (theme === 'dark') {
+      setTheme('system');
+    } else {
+      setTheme('light');
+    }
+  };
+
+  // Use resolvedTheme directly - this will always be 'light' or 'dark'
+  const isDarkMode = resolvedTheme === 'dark';
 
   return (
     <header
@@ -85,10 +66,13 @@ const TopBar: React.FC = () => {
           ))}
         </div>
         <div className="flex gap-4 justify-self-end">
-          <button type="button" onClick={toggleDarkMode} aria-label="Toggle dark mode">
-            {!isMounted ? (
-              <div className="h-6 w-6" />
-            ) : isDarkMode ? (
+          <button 
+            type="button" 
+            onClick={toggleTheme} 
+            aria-label="Toggle theme"
+            key={`theme-${theme}-${resolvedTheme}`}
+          >
+            {isDarkMode ? (
               <SunIcon className="h-6 w-6 cursor-pointer text-textSecondary" />
             ) : (
               <MoonIcon className="h-6 w-6 cursor-pointer text-textSecondary" />

@@ -2,7 +2,7 @@
 
 import React, {useMemo} from "react"
 import {Button} from "@/components/ui/button"
-import {Card} from "@/components/ui/card"
+import {Card, CardContent, CardHeader, CardTitle, CardDescription} from "@/components/ui/card"
 import {Input} from "@/components/ui/input"
 import MultiCheckbox from "@/components/ui/MultiCheckbox"
 import {Label} from "@/components/ui/label"
@@ -105,20 +105,21 @@ export default function ContactForm() {
 
     return (
         <Card className="border-0 overflow-hidden">
-            <div className="px-6 pt-8">
-                <h2 className="text-2xl font-bold text-foreground-primary">Ta kontakt med oss</h2>
-                <p className="text-sm text-foreground-secondary">Fyll ut kontaktskjemaet, så hører du fra oss straks.</p>
-            </div>
+            <CardHeader>
+                <CardTitle className="text-2xl font-bold">Ta kontakt med oss</CardTitle>
+                <CardDescription>Fyll ut kontaktskjemaet, så hører du fra oss straks.</CardDescription>
+            </CardHeader>
 
-            <form
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation()
-                    form.handleSubmit();
-                }}
-                className="space-y-6 py-6"
-            >
-                <div className="grid gap-6 md:grid-cols-2 px-6">
+            <CardContent>
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation()
+                        form.handleSubmit();
+                    }}
+                    className="space-y-6"
+                >
+                <div className="grid gap-6 md:grid-cols-2">
                     <div className="space-y-2 flex flex-col">
                         <form.Field
                             name="bedrift"
@@ -196,7 +197,7 @@ export default function ContactForm() {
 
                 </div>
 
-                <div className="grid gap-6 md:grid-cols-2 px-6">
+                <div className="grid gap-6 md:grid-cols-2">
                     <div className="space-y-4">
                         <form.Field
                             name="time"
@@ -284,7 +285,8 @@ export default function ContactForm() {
                         )}
                     />
                 </div>
-            </form>
+                </form>
+            </CardContent>
         </Card>
     );
 }

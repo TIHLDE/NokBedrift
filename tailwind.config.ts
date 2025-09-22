@@ -17,8 +17,8 @@ export default {
           primary: "var(--foreground-primary)",
           secondary: "var(--foreground-secondary)",
         },
-        card: "var(--card-background)",
-        cardForeground: "var(--card-foreground)",
+        cardBackground: "var(--card-background)",
+        cardForeground: "var(--text-primary)",
         cardBorder: "var(--card-border)",
         button: {
           background: "var(--button-background)",

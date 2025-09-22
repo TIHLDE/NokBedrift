@@ -5,6 +5,7 @@ import Providers from "./providers";
 import Navbar from "@/components/navigation/TopBar";
 import Footer from "@/components/navigation/Footer";
 import BottomBar from "@/components/navigation/BottomBar";
+import ThemeScript from "@/components/providers/ThemeScript";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,6 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <ThemeScript />
+      </head>
       <body className={`antialiased ${inter.variable}`}>
         <Providers>
           <div className="relative flex min-h-dvh flex-col items-center">

@@ -3,6 +3,7 @@ import Image from "next/image"
 import TihldeLogo from "@/components/miscellaneous/TihldeLogo"
 import { Suspense } from "react";
 import JobPostList from "@/components/JobPostList";
+import { Card } from "@/components/ui/card";
 
 
 export default function Hjem() {
@@ -23,6 +24,7 @@ export default function Hjem() {
             <Hero />
             {/* Om TIHLDE */}
             <section className="max-w-5xl px-4 py-16 h-auto justify-center">
+                <Card>
                 <div className="grid md:gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
                         <h2 className="mb-2 text-3xl font-bold text-foreground-primary">Om TIHLDE</h2>
@@ -37,8 +39,10 @@ export default function Hjem() {
                         <div className="relative w-full py-4">
                             <TihldeLogo size="large" className="w-full h-auto" />
                         </div>
-                    </div>
+                        </div>
+                    
                 </div>
+                </Card>
             </section>
 
             <div
@@ -56,6 +60,7 @@ export default function Hjem() {
 
             {/* Bedriftspresentasjoner */}
             <section className="max-w-5xl px-4 py-16 h-auto justify-center">
+                <Card>
                 <div className="grid gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
                         <h2 className="mb-2 text-3xl font-bold text-foreground-primary">Bedriftspresentasjoner</h2>
@@ -73,6 +78,7 @@ export default function Hjem() {
                         </div>
                     </div>
                 </div>
+                </Card>
             </section>
 
             <div
@@ -89,6 +95,7 @@ export default function Hjem() {
             </div>
 
             <section className="max-w-5xl px-4 py-16 h-auto justify-center">
+                <Card>
                 <div className="grid gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
                         <h2 className="mb-2 text-3xl font-bold">Kurs og workshops</h2>
@@ -106,9 +113,11 @@ export default function Hjem() {
                         </div>
                     </div>
                 </div>
+                </Card>
             </section>
 
             <section className="max-w-5xl px-4 py-16 h-auto justify-center">
+                <Card>
                 <div className="grid gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
                         <h2 className="mb-2 text-3xl font-bold">Bedriftsbesøk</h2>
@@ -125,9 +134,11 @@ export default function Hjem() {
                         </div>
                     </div>
                 </div>
+                </Card>
             </section>
 
             <section className="max-w-5xl px-4 py-16 h-auto justify-center">
+                <Card>
                 <div className="grid gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
                         <h2 className="mb-2 text-3xl font-bold">Bedriftsekskursjon</h2>
@@ -145,6 +156,7 @@ export default function Hjem() {
                         </div>
                     </div>
                 </div>
+                </Card>
             </section>
 
             <section className="max-w-5xl px-4 py-16 h-auto justify-center">
@@ -175,12 +187,11 @@ export default function Hjem() {
                 />
             </div>
 
-            {/* Linjene */}
             < section id="linjene" className="max-w-5xl px-4 py-16">
                 <h2 className="mb-2 text-3xl font-bold text-foreground-primary">Linjene</h2>
                 <div className="grid gap-8 md:grid-cols-2">
-                    <div className="rounded  -gray-800 p-4">
-
+                    <Card className="p-4">
+                    <div className="rounded  p-4">
                         <h3 className="mb-2 text-xl font-semibold">
                             Digital forretningsutvikling
                         </h3>
@@ -189,8 +200,9 @@ export default function Hjem() {
                             studerer digital forretningsutvikling.
                         </p>
                     </div>
-                    <div className="rounded  -gray-800 p-4">
-
+                    </Card>
+                    <Card className="p-4">
+                    <div className="rounded p-4">
                         <h3 className="mb-2 text-xl font-semibold">
                             Dataingeniør
                         </h3>
@@ -199,14 +211,18 @@ export default function Hjem() {
                             funksjonalitet, sikkerhet og brukertilpasning.
                         </p>
                     </div>
-                    <div className="p-4">
+                    </Card>
+                    <Card className="p-4">
+                    <div className="rounded  p-4">
                         <h3 className="mb-2 text-xl font-semibold">Digital infrastruktur og cybersikkerhet</h3>
                         <p className="text-foreground-secondary">
                             Studiet kombinerer informatikk med praktiske ferdigheter innen digital infrastruktur og
                             sikkerhet.
                         </p>
                     </div>
-                    <div className="p-4">
+                    </Card>
+                    <Card className="p-4">
+                    <div className="rounded  p-4">
                         <h3 className="mb-2 text-xl font-semibold">
                             Digital transformasjon
                         </h3>
@@ -215,6 +231,7 @@ export default function Hjem() {
                             kan utnytte digitale teknologier for strategisk utvikling og effektivisering.
                         </p>
                     </div>
+                    </Card>
                 </div>
             </section>
         </div>

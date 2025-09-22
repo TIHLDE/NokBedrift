@@ -35,7 +35,7 @@ const Footer = () => {
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label={social.id}
-                className='text-foreground-secondary hover:text-foreground-primary transition-colors'
+                className='text-foreground-secondary hover:text-button-background transition-colors'
               >
                 {social.icon}
               </Link>
@@ -49,7 +49,16 @@ const Footer = () => {
           {attributes.map((attribute) => (
             <div key={attribute.id}>
               <h4 className='text-sm'>{attribute.key}</h4>
-              <p className='font-semibold'>{attribute.value}</p>
+              {attribute.id === 'email' ? (
+                <a
+                  href={`mailto:${attribute.value}`}
+                  className='font-semibold hover:underline'
+                >
+                  {attribute.value}
+                </a>
+              ) : (
+                <p className='font-semibold'>{attribute.value}</p>
+              )}
             </div>
           ))}
         </div>
