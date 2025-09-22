@@ -118,6 +118,19 @@ export default function Hjem() {
         </Card>
       </section>
 
+      <div
+        aria-hidden="true"
+        className="absolute right-0 top-128 -z-10 transform-gpu overflow-hidden blur-3xl"
+      >
+        <div
+          style={{
+            clipPath:
+              "polygon(100% 61.6%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%)",
+          }}
+          className="relative left-[calc(10%-16rem)] aspect-[1155/678] w-[26.125rem] rotate-[10deg] bg-gradient-to-tr from-cyan-500 to-indigo-700 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+        />
+      </div>
+
       <section className="max-w-7xl px-4 py-12 sm:py-16 h-auto justify-center">
         <Card>
           <div className="grid gap-6 sm:gap-8 md:grid-cols-5 place-items-center">
@@ -244,20 +257,34 @@ export default function Hjem() {
           ))}
         </div>
       </section>
-      <section className="max-w-5xl px-4 py-20 sm:py-24 flex flex-col items-center justify-center text-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground-primary">
-          Ta kontakt med oss
-        </h2>
-        {/* call to action section here */}
-        <div className="flex flex-col gap-4 mt-4 max-w-xl">
-          <p className="text-foreground-secondary text-base sm:text-lg leading-relaxed">
-            Bedrifter kan ta kontakt med oss for å få mer informasjon om våre
-            aktiviteter og hvordan vi kan hjelpe dem med å nå ut til våre
-            medlemmer.
-          </p>
-          <Button className="w-fit mx-auto mt-6">
-            <Link href="/kontakt">Ta kontakt</Link>
-          </Button>
+      <section className="max-w-5xl px-4 py-20 sm:py-24">
+        <div className="grid gap-8 md:grid-cols-2 items-center">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground-primary">
+              Ta kontakt med oss
+            </h2>
+            <div className="flex flex-col gap-4 mt-4 max-w-xl">
+              <p className="text-foreground-secondary text-base sm:text-lg leading-relaxed">
+                Bedrifter kan ta kontakt med oss for å få mer informasjon om
+                våre aktiviteter og hvordan vi kan hjelpe dem med å nå ut til
+                våre medlemmer.
+              </p>
+              <Button className="w-fit mt-6">
+                <Link href="/kontakt">Ta kontakt</Link>
+              </Button>
+            </div>
+          </div>
+          <div className="flex justify-center md:justify-end">
+            <div className="relative w-full max-w-md">
+              <Image
+                src="/kontakt-oss-bilde.png"
+                alt="Kontakt oss"
+                width={600}
+                height={600}
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
         </div>
       </section>
     </div>

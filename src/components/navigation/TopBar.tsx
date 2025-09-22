@@ -53,7 +53,7 @@ const TopBar: React.FC = () => {
         >
           <TihldeLogo size="large" className="w-32 sm:w-44 h-auto" />
         </Link>
-        <div className="hidden sm:flex gap-6 justify-self-center">
+        <div className="hidden sm:flex gap-8 justify-self-center">
           {navigationItems.map((item) => (
             <Link
               key={item.id}
