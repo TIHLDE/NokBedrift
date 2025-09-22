@@ -37,7 +37,7 @@ export default function JobPostList() {
 
     return (
         <div className="flex flex-col gap-4">
-            {data.map((post: JobPost) => (
+            {data.slice(0, 3).map((post: JobPost) => (
                 <JobPostListItem key={post.id} jobPost={post} />
             ))}
         </div>

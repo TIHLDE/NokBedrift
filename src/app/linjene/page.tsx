@@ -37,10 +37,10 @@ export default function Linjene() {
               key={linje.title}
             >
               <CardHeader>
-                <CardTitle className="mb-2 text-xl font-semibold">{linje.title}</CardTitle>
+                <CardTitle className="mb-2 text-2xl md:text-4xl font-semibold">{linje.title}</CardTitle>
               </CardHeader>
               <CardContent>
-              <p className="text-foreground-secondary leading-relaxed">
+              <p className="text-foreground-secondary leading-relaxed text-lg">
                 {linje.description}
               </p>
               </CardContent>

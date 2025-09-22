@@ -35,7 +35,7 @@ const Footer = () => {
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label={social.id}
-                className='text-foreground-secondary hover:text-button-background transition-colors'
+                className='text-foreground-secondary hover:text-accent transition-colors'
               >
                 {social.icon}
               </Link>

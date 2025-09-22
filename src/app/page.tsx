@@ -4,6 +4,8 @@ import TihldeLogo from "@/components/miscellaneous/TihldeLogo"
 import { Suspense } from "react";
 import JobPostList from "@/components/JobPostList";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 
 export default function Hjem() {
@@ -23,26 +25,10 @@ export default function Hjem() {
             </div>
             <Hero />
             {/* Om TIHLDE */}
-            <section className="max-w-5xl px-4 py-16 h-auto justify-center">
-                <Card>
-                <div className="grid md:gap-8 md:grid-cols-5 place-items-center">
-                    <div className="md:col-span-2">
-                        <h2 className="mb-2 text-3xl font-bold text-foreground-primary">Om TIHLDE</h2>
-                        <p className="mb-4 text-foreground-secondary text-lg leading-relaxed">
-                            Vi er linjeforeningen for datastudenter, og vårt mål er å knytte tettere bånd mellom
-                            studenter og næringslivet. Gjennom våre aktiviteter får bedrifter muligheten til å nå
-                            motiverte studenter som søker utfordringer og nye muligheter.
-                        </p>
-                    </div>
-                    <div className="flex items-center justify-center md:col-span-3">
-                        {/* Eksempelbilde eller annet innhold */}
-                        <div className="relative w-full py-4">
+            <section className="max-w-2xl px-4 py-16 h-auto justify-center">
+            <div className="relative w-full py-4">
                             <TihldeLogo size="large" className="w-full h-auto" />
                         </div>
-                        </div>
-                    
-                </div>
-                </Card>
             </section>
 
             <div
@@ -59,12 +45,12 @@ export default function Hjem() {
             </div>
 
             {/* Bedriftspresentasjoner */}
-            <section className="max-w-5xl px-4 py-16 h-auto justify-center">
+            <section className="max-w-7xl px-4 py-16 h-auto justify-center">
                 <Card>
                 <div className="grid gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
-                        <h2 className="mb-2 text-3xl font-bold text-foreground-primary">Bedriftspresentasjoner</h2>
-                        <p className="mb-4 text-foreground-secondary text-lg leading-relaxed">
+                        <h2 className="mb-2 text-2xl sm:text-4xl font-bold text-pretty">Bedriftspresentasjoner</h2>
+                        <p className="mb-4 text-foreground-secondary text-lg sm:text-xl leading-relaxed">
                             En bedriftspresentasjon lar dere introdusere organisasjonen for TIHLDE-studentene, vise hva
                             dere tilbyr og hvordan dere jobber. Etter presentasjonen følger middag og mingling med
                             bedriftsrepresentanter.
@@ -94,11 +80,11 @@ export default function Hjem() {
                 />
             </div>
 
-            <section className="max-w-5xl px-4 py-16 h-auto justify-center">
+            <section className="max-w-7xl px-4 py-16 h-auto justify-center">
                 <Card>
                 <div className="grid gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
-                        <h2 className="mb-2 text-3xl font-bold">Kurs og workshops</h2>
+                        <h2 className="mb-2 text-2xl sm:text-4xl font-bold">Kurs og workshops</h2>
                         <p className="mb-4 text-foreground-secondary text-lg leading-relaxed">
                             Et kurs introduserer studentene for relevante faglige erfaringer til arbeidslivet. Det kan
                             starte med en kort presentasjon av bedriften. Vi legger til rette for matservering på skolen
@@ -116,11 +102,11 @@ export default function Hjem() {
                 </Card>
             </section>
 
-            <section className="max-w-5xl px-4 py-16 h-auto justify-center">
+            <section className="max-w-7xl px-4 py-16 h-auto justify-center">
                 <Card>
                 <div className="grid gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
-                        <h2 className="mb-2 text-3xl font-bold">Bedriftsbesøk</h2>
+                        <h2 className="mb-2 text-2xl sm:text-4xl font-bold">Bedriftsbesøk</h2>
                         <p className="mb-4 text-foreground-secondary text-lg leading-relaxed">
                             Under et bedriftsbesøk besøker studentene deres lokaler for et valgfritt arrangement. Dette
                             gir dere en mulighet til å vise frem arbeidsplassen og bli bedre kjent med dem.
@@ -137,11 +123,11 @@ export default function Hjem() {
                 </Card>
             </section>
 
-            <section className="max-w-5xl px-4 py-16 h-auto justify-center">
+            <section className="max-w-7xl px-4 py-16 h-auto justify-center">
                 <Card>
                 <div className="grid gap-8 md:grid-cols-5 place-items-center">
                     <div className="md:col-span-2">
-                        <h2 className="mb-2 text-3xl font-bold">Bedriftsekskursjon</h2>
+                        <h2 className="mb-2 text-2xl sm:text-4xl font-bold">Bedriftsekskursjon</h2>
                         <p className="mb-4 text-foreground-secondary text-lg leading-relaxed">
                             Hver høst arrangerer TIHLDE en bedriftsekskursjon til Oslo med 60 studenter. Dette gir
                             bedrifter en god mulighet til å vise frem sine lokaler og bli bedre kjent med studentene.
@@ -162,7 +148,7 @@ export default function Hjem() {
             <section className="max-w-5xl px-4 py-16 h-auto justify-center">
                 <div className="">
                     <div className="md:col-span-2">
-                        <h2 className="mb-2 text-3xl font-bold">Annonser</h2>
+                        <h2 className="mb-2 text-2xl sm:text-4xl font-bold">Annonser</h2>
                         <p className="mb-4 text-foreground-secondary text-lg leading-relaxed">
                             Publiser relevante stillinger, internships eller trainee-programmer direkte til våre
                             medlemmer. Sikre deg de beste kandidatene!
@@ -188,10 +174,9 @@ export default function Hjem() {
             </div>
 
             < section id="linjene" className="max-w-5xl px-4 py-16">
-                <h2 className="mb-2 text-3xl font-bold text-foreground-primary">Linjene</h2>
-                <div className="grid gap-8 md:grid-cols-2">
-                    <Card className="p-4">
-                    <div className="rounded  p-4">
+                <h2 className="text-2xl sm:text-4xl font-bold text-foreground-primary">Linjene</h2>
+                <div className="grid gap-8 md:grid-cols-2 mt-4">
+                    <Card className="p-6">
                         <h3 className="mb-2 text-xl font-semibold">
                             Digital forretningsutvikling
                         </h3>
@@ -199,10 +184,29 @@ export default function Hjem() {
                             I krysningen mellom informatikk, økonomi, marked, organisasjon og ledelse møter du de som
                             studerer digital forretningsutvikling.
                         </p>
-                    </div>
+                        <div className="flex justify-end mt-4">
+                        <Button variant="link">
+                            <Link href="/linjene">
+                            Les mer
+                            </Link>
+                        </Button>
+                        </div>
                     </Card>
-                    <Card className="p-4">
-                    <div className="rounded p-4">
+                    <Card className="p-6">
+                        <h3 className="mb-2 text-xl font-semibold">Digital infrastruktur og cybersikkerhet</h3>
+                        <p className="text-foreground-secondary">
+                            Studiet kombinerer informatikk med praktiske ferdigheter innen digital infrastruktur og
+                            sikkerhet.
+                        </p>    
+                        <div className="flex justify-end mt-4">
+                        <Button variant="link">
+                            <Link href="/linjene">
+                            Les mer
+                            </Link>
+                        </Button>
+                        </div>
+                    </Card>
+                    <Card className="p-6">
                         <h3 className="mb-2 text-xl font-semibold">
                             Dataingeniør
                         </h3>
@@ -210,19 +214,15 @@ export default function Hjem() {
                             Studiet gir et solid grunnlag for systemutvikling av digitale løsninger, med fokus på
                             funksjonalitet, sikkerhet og brukertilpasning.
                         </p>
-                    </div>
+                        <div className="flex justify-end mt-4">
+                        <Button variant="link">
+                            <Link href="/linjene">
+                            Les mer
+                            </Link>
+                        </Button>
+                        </div>
                     </Card>
-                    <Card className="p-4">
-                    <div className="rounded  p-4">
-                        <h3 className="mb-2 text-xl font-semibold">Digital infrastruktur og cybersikkerhet</h3>
-                        <p className="text-foreground-secondary">
-                            Studiet kombinerer informatikk med praktiske ferdigheter innen digital infrastruktur og
-                            sikkerhet.
-                        </p>
-                    </div>
-                    </Card>
-                    <Card className="p-4">
-                    <div className="rounded  p-4">
+                    <Card className="p-6">
                         <h3 className="mb-2 text-xl font-semibold">
                             Digital transformasjon
                         </h3>
@@ -230,10 +230,32 @@ export default function Hjem() {
                             Studiet gir avansert kompetanse i digital transformasjon, med fokus på hvordan virksomheter
                             kan utnytte digitale teknologier for strategisk utvikling og effektivisering.
                         </p>
-                    </div>
+                        <div className="flex justify-end mt-4">
+                        <Button variant="link">
+                            <Link href="/linjene">
+                            Les mer
+                            </Link>
+                        </Button>
+                        </div>
                     </Card>
                 </div>
             </section>
+            <section className="max-w-5xl px-4 py-16 flex flex-col items-center justify-center text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground-primary">Ta kontakt med oss</h2>
+        {/* call to action section here */}
+        <div className="flex flex-col gap-4 mt-4 max-w-xl">
+          <p className="text-foreground-secondary text-lg leading-relaxed">
+            Vi er linjeforeningen for datastudenter, og vårt mål
+            er å knytte tettere bånd mellom studenter og
+            næringslivet. Gjennom våre aktiviteter får bedrifter
+            muligheten til å nå motiverte studenter som søker
+            utfordringer og nye muligheter.
+          </p>
+          <Button className="w-fit mx-auto mt-6">
+            <Link href="/kontakt">Kontakt oss</Link>
+          </Button>
+        </div>
+      </section>
         </div>
     )
 }
