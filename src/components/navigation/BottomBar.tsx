@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-import {ChartLine, GraduationCap, HomeIcon} from "lucide-react";
+import {GraduationCap, HomeIcon, Mail} from "lucide-react";
 
 const navigationItems = [
   { id: 'home', text: 'Hjem', to: '/', icon: <HomeIcon className="h-5 w-5" /> },
-  { id: 'bedpres', text: 'Bedriftspresentasjoner', to: '/bedpres', icon: <ChartLine className="h-5 w-5" /> },
   { id: 'linjene', text: 'Linjene', to: '/linjene', icon: <GraduationCap className="h-5 w-5" /> },
+  { id: 'kontakt', text: 'Kontakt', to: '/kontakt', icon: <Mail className="h-5 w-5" /> },
 ];
 
 const BottomBar: React.FC = () => {

@@ -27,37 +27,40 @@ const linjer = [
 
 export default function Linjene() {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center w-full overflow-x-clip">
       {/* Om TIHLDE Linjene */}
       <section id="linjene" className="max-w-5xl px-4 py-16 mt-32">
-        <h1 className="mb-4 text-5xl font-bold md:text-6xl text-foreground-primary">Linjene</h1>
+        <h1 className="mb-4 text-5xl font-bold md:text-6xl text-foreground-primary">
+          Linjene
+        </h1>
         <div className="flex flex-col gap-8 mt-8">
           {linjer.map((linje) => (
-            <Card
-              key={linje.title}
-            >
+            <Card key={linje.title}>
               <CardHeader>
-                <CardTitle className="mb-2 text-2xl md:text-4xl font-semibold">{linje.title}</CardTitle>
+                <CardTitle className="mb-2 text-2xl md:text-4xl font-semibold">
+                  {linje.title}
+                </CardTitle>
               </CardHeader>
               <CardContent>
-              <p className="text-foreground-secondary leading-relaxed text-lg">
-                {linje.description}
-              </p>
+                <p className="text-foreground-secondary leading-relaxed text-lg">
+                  {linje.description}
+                </p>
               </CardContent>
             </Card>
           ))}
         </div>
       </section>
-      <section className="max-w-5xl px-4 py-16 flex flex-col items-center justify-center text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground-primary">Ta kontakt med oss</h2>
+      <section className="max-w-5xl px-4 py-24 flex flex-col items-center justify-center text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground-primary">
+          Ta kontakt med oss
+        </h2>
         {/* call to action section here */}
         <div className="flex flex-col gap-4 mt-4 max-w-xl">
           <p className="text-foreground-secondary text-lg leading-relaxed">
-            Vi er linjeforeningen for datastudenter, og vårt mål
-            er å knytte tettere bånd mellom studenter og
-            næringslivet. Gjennom våre aktiviteter får bedrifter
-            muligheten til å nå motiverte studenter som søker
-            utfordringer og nye muligheter.
+            Vi er linjeforeningen for datastudenter, og vårt mål er å knytte
+            tettere bånd mellom studenter og næringslivet. Gjennom våre
+            aktiviteter får bedrifter muligheten til å nå motiverte studenter
+            som søker utfordringer og nye muligheter.
           </p>
           <Button className="w-fit mx-auto mt-6">
             <Link href="/kontakt">Kontakt oss</Link>
@@ -65,5 +68,5 @@ export default function Linjene() {
         </div>
       </section>
     </div>
-  )
+  );
 }

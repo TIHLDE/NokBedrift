@@ -15,8 +15,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Bedrifter | TIHLDE",
-  description: "Linjeforeningen for datastudenter ved NTNU",
+  title: "Bedrifter | TIHLDE – Linjeforeningen for datastudenter ved NTNU",
+  description:
+    "TIHLDE er linjeforeningen for digital forretningsutvikling, dataingeniør, digital infrastruktur og cybersikkerhet, og digital transformasjon ved NTNU.",
 };
 
 export const dynamic = "force-dynamic";
@@ -27,15 +28,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="w-full">
       <head>
         <ThemeScript />
       </head>
-      <body className={`antialiased ${inter.variable}`}>
+      <body className={`antialiased ${inter.variable} w-full`}>
         <Providers>
-          <div className="relative flex min-h-dvh flex-col items-center">
+          <div className="relative flex min-h-dvh w-full flex-col items-center">
             <Navbar />
-            <main className="w-full flex-1 flex flex-col items-center">
+            <main className="w-full flex flex-col items-center">
               {children}
             </main>
             <BottomBar />
