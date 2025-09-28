@@ -30,7 +30,7 @@ export default function Linjene() {
     <div className="flex flex-col items-center justify-center w-full overflow-x-clip">
       {/* Om TIHLDE Linjene */}
       <section id="linjene" className="max-w-5xl px-4 py-16 mt-32">
-        <h1 className="mb-4 text-5xl font-bold md:text-6xl text-foreground-primary">
+        <h1 className="mb-4 text-5xl md:text-6xl font-bold text-foreground-primary">
           Linjene
         </h1>
         <div className="flex flex-col gap-8 mt-8">
@@ -57,10 +57,8 @@ export default function Linjene() {
         {/* call to action section here */}
         <div className="flex flex-col gap-4 mt-4 max-w-xl">
           <p className="text-foreground-secondary text-lg leading-relaxed">
-            Vi er linjeforeningen for datastudenter, og vårt mål er å knytte
-            tettere bånd mellom studenter og næringslivet. Gjennom våre
-            aktiviteter får bedrifter muligheten til å nå motiverte studenter
-            som søker utfordringer og nye muligheter.
+            Bedrifter kan ta kontakt med oss for å få mer informasjon om hva vi
+            tilbyr og hvordan vi kan hjelpe dem med å nå ut til våre medlemmer.
           </p>
           <Button className="w-fit mx-auto mt-6">
             <Link href="/kontakt">Kontakt oss</Link>

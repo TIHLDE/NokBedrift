@@ -45,7 +45,7 @@ export default function Hjem() {
       </div>
 
       {/* Bedriftspresentasjoner */}
-      <section className="max-w-7xl px-4 py-12 sm:py-16 h-auto justify-center">
+      <section className="max-w-7xl px-4 py-4 sm:py-16 h-auto justify-center">
         <Card>
           <div className="grid gap-6 sm:gap-8 md:grid-cols-5 place-items-center">
             <div className="md:col-span-2">
@@ -88,7 +88,7 @@ export default function Hjem() {
         />
       </div>
 
-      <section className="max-w-7xl px-4 py-12 sm:py-16 h-auto justify-center">
+      <section className="max-w-7xl px-4 py-4 sm:py-16 h-auto justify-center">
         <Card>
           <div className="grid gap-6 sm:gap-8 md:grid-cols-5 place-items-center">
             <div className="md:col-span-2">
@@ -131,7 +131,7 @@ export default function Hjem() {
         />
       </div>
 
-      <section className="max-w-7xl px-4 py-12 sm:py-16 h-auto justify-center">
+      <section className="max-w-7xl px-4 py-4 sm:py-16 h-auto justify-center">
         <Card>
           <div className="grid gap-6 sm:gap-8 md:grid-cols-5 place-items-center">
             <div className="md:col-span-2">
@@ -160,7 +160,7 @@ export default function Hjem() {
         </Card>
       </section>
 
-      <section className="max-w-7xl px-4 py-12 sm:py-16 h-auto justify-center">
+      <section className="max-w-7xl px-4 py-4 sm:py-16 h-auto justify-center">
         <Card>
           <div className="grid gap-6 sm:gap-8 md:grid-cols-5 place-items-center">
             <div className="md:col-span-2">
@@ -216,7 +216,7 @@ export default function Hjem() {
         />
       </div>
 
-      <section id="linjene" className="max-w-5xl px-4 py-12 sm:py-16">
+      <section id="linjene" className="relative max-w-5xl px-4 py-12 sm:py-16">
         <h2 className="text-3xl sm:text-4xl font-bold text-foreground-primary">
           Linjene
         </h2>
@@ -243,12 +243,14 @@ export default function Hjem() {
                 "Studiet gir avansert kompetanse i digital transformasjon, med fokus på hvordan virksomheter kan utnytte digitale teknologier for strategisk utvikling og effektivisering.",
             },
           ].map((line) => (
-            <Card key={line.title} className="p-6">
-              <h3 className="mb-2 text-xl font-semibold">{line.title}</h3>
-              <p className="text-foreground-secondary">{line.description}</p>
+            <Card key={line.title} className="p-4 sm:p-6 flex flex-col h-full">
+              <div className="flex-1">
+                <h3 className="mb-2 text-xl font-semibold">{line.title}</h3>
+                <p className="text-foreground-secondary">{line.description}</p>
+              </div>
               <div className="flex justify-end mt-4">
                 <Button variant="link" className="">
-                  <Link href="/linjene">
+                  <Link href="/linjene" className="flex items-center gap-2">
                     Les mer <ArrowRight className="w-3 h-3" />
                   </Link>
                 </Button>
@@ -257,17 +259,31 @@ export default function Hjem() {
           ))}
         </div>
       </section>
-      <section className="max-w-5xl px-4 py-20 sm:py-24">
+
+      <div
+        aria-hidden="true"
+        className="absolute right-20 bottom-64 -z-10 transform-gpu overflow-hidden blur-3xl"
+      >
+        <div
+          style={{
+            clipPath:
+              "polygon(100% 61.6%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%)",
+          }}
+          className="relative left-[calc(10%-16rem)] aspect-[1155/678] w-[26.125rem] rotate-[10deg] bg-gradient-to-tr from-cyan-500 to-indigo-700 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+        />
+      </div>
+
+      <section className="max-w-5xl px-4 py-20 sm:py-24 flex flex-col items-center">
         <div className="grid gap-8 md:grid-cols-2 items-center">
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground-primary">
               Ta kontakt med oss
             </h2>
-            <div className="flex flex-col gap-4 mt-4 max-w-xl">
+            <div className="flex flex-col items-center md:items-start gap-4 mt-4 max-w-xl">
               <p className="text-foreground-secondary text-base sm:text-lg leading-relaxed">
-                Bedrifter kan ta kontakt med oss for å få mer informasjon om
-                våre aktiviteter og hvordan vi kan hjelpe dem med å nå ut til
-                våre medlemmer.
+                Bedrifter kan ta kontakt med oss for å få mer informasjon om hva
+                vi tilbyr og hvordan vi kan hjelpe dem med å nå ut til våre
+                medlemmer.
               </p>
               <Button className="w-fit mt-6">
                 <Link href="/kontakt">Ta kontakt</Link>

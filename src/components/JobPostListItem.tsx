@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge, CalendarClock, MapPin } from "lucide-react";
+import { CalendarClock, MapPin } from "lucide-react";
 import { JobPost } from "@/types/JobPost";
 import { getJobpostType } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -12,9 +12,20 @@ export type JobPostListItemProps = {
 };
 
 export const JobPostListItem = ({ jobPost }: JobPostListItemProps) => {
+  const formatDeadline = (dateString: string) => {
+    const date = new Date(dateString);
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: "short",
+      day: "numeric",
+      month: "short",
+    };
+    const formattedDate = date.toLocaleDateString("nb-NO", options);
+    return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+  };
+
   const deadline = jobPost.is_continuously_hiring
     ? "Fortløpende"
-    : jobPost.deadline;
+    : formatDeadline(jobPost.deadline);
 
   const classRange =
     jobPost.class_start === jobPost.class_end
@@ -22,19 +33,19 @@ export const JobPostListItem = ({ jobPost }: JobPostListItemProps) => {
       : `${jobPost.class_start}. - ${jobPost.class_end}. klasse`;
 
   return (
-    <Card className="p-0">
-      <div className="flex flex-col xl:flex-row h-full rounded-l-lg">
-        <div className="w-full xl:w-3/6 rounded-l-lg">
+    <Card className="p-0 sm:p-0">
+      <div className="flex flex-col lg:flex-row h-full rounded-l-lg">
+        <div className="w-full lg:w-1/2 rounded-l-lg h-full">
           <Image
             alt={jobPost.image_alt || jobPost.title}
-            className="w-full !object-cover aspect-[16/10] sm:aspect-[16/7]"
+            className="w-full h-full !object-cover aspect-[16/10] sm:aspect-[16/7] rounded-t-lg lg:rounded-l-lg lg:rounded-r-none"
             width={672}
             height={294}
             src={jobPost.image}
             onError={(e) => (e.currentTarget.src = "/img/TihldeBackground.jpg")}
           />
         </div>
-        <CardContent className="flex-1 p-4 flex flex-col justify-between">
+        <CardContent className="flex p-4 flex-col md:w-1/2 sm:p-4 space-y-2">
           <CardHeader className="p-0">
             <CardTitle className="text-lg sm:text-xl font-bold line-clamp-2 group-hover:text-primary transition-colors">
               {jobPost.title}
@@ -43,24 +54,24 @@ export const JobPostListItem = ({ jobPost }: JobPostListItemProps) => {
 
           <div className="space-y-3">
             <div className="flex flex-wrap gap-2">
-              <Badge className="bg-primary test-primary-foreground font-medium px-3 py-1 rounded-full w-fit">
+              <div className="border border-accent text-sm font-medium px-3 py-1 rounded-full w-fit">
                 {getJobpostType(jobPost.job_type)}
-              </Badge>
-              <Badge className="bg-primary test-primary-foreground font-medium px-3 py-1 rounded-full w-fit">
+              </div>
+              <div className="border border-accent text-sm font-medium px-3 py-1 rounded-full w-fit">
                 {jobPost.company}
-              </Badge>
-              <Badge className="bg-primary test-primary-foreground font-medium px-3 py-1 rounded-full w-fit">
+              </div>
+              <div className="border border-accent text-sm font-medium px-3 py-1 rounded-full w-fit">
                 {classRange}
-              </Badge>
+              </div>
             </div>
 
-            <div className="mt-4 gap-2 md:space-y-2 space-x-2  flex flex-wrap md:flex-col md:space-x-0 ">
+            <div className="mt-4 gap-y-2 gap-x-4 md:space-y-2 flex flex-wrap md:flex-col md:space-x-0 items-start">
               <div className="flex items-center gap-2 text-sm">
-                <MapPin className="h-5 w-5 text-muted-foreground" />
+                <MapPin className="h-5 w-5 text-muted-foreground flex-shrink-0" />
                 <span>{jobPost.location}</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
-                <CalendarClock className="h-5 w-5 text-muted-foreground" />
+                <CalendarClock className="h-5 w-5 text-muted-foreground flex-shrink-0" />
                 <span>{deadline}</span>
               </div>
             </div>
