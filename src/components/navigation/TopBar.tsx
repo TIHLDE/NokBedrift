@@ -67,7 +67,15 @@ const TopBar: React.FC = () => {
             </Link>
           ))}
         </div>
-        <div className="flex gap-4 justify-self-end">
+        <div className="flex gap-4 justify-self-end items-center">
+          <Link
+            href="https://tihlde.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium transition-colors text-foreground-secondary hover:text-foreground-primary"
+          >
+            Til hovedsiden
+          </Link>
           <button
             type="button"
             onClick={toggleTheme}
