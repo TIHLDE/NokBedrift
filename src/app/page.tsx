@@ -64,7 +64,7 @@ export default function Hjem() {
                 />
             </div>
 
-            <div className={"container max-w-6xl px-4 space-y-16"}>
+            <div className={"container max-w-6xl px-4 space-y-32"}>
                 <InfoCard
                     header={"Bedriftspresentasjoner"}
                     description={bedriftpres}
