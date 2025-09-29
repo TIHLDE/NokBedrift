@@ -295,7 +295,7 @@ export default function ContactForm() {
             <form.Subscribe
               selector={(state) => [state.canSubmit, state.isSubmitting]}
               children={([canSubmit, isSubmitting]) => (
-                <Button type="submit" className="w-full" disabled={!canSubmit}>
+                <Button size={"lg"} type="submit" className="w-full" disabled={!canSubmit}>
                   {isSubmitting ? (
                     <>
                       <p>Sender</p>{" "}
