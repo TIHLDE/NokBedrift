@@ -149,7 +149,6 @@ export default function ContactForm() {
                       <Input
                         id={field.name}
                         placeholder="Firmanavn"
-                        className="bg-card-background border-0 text-foreground-primary placeholder:text-foreground-secondary dark:text-black"
                         value={field.state.value || ""}
                         onChange={(e) => field.handleChange(e.target.value)}
                         onBlur={field.handleBlur}
@@ -177,7 +176,6 @@ export default function ContactForm() {
                       <Input
                         id={field.name}
                         placeholder="Ola Nordmann"
-                        className="bg-card-background border-0 text-foreground-primary placeholder:text-foreground-secondary dark:text-black"
                         value={field.state.value || ""}
                         onChange={(e) => field.handleChange(e.target.value)}
                         onBlur={field.handleBlur}
@@ -205,7 +203,6 @@ export default function ContactForm() {
                       <Input
                         id={field.name}
                         placeholder="eksempel@mail.com"
-                        className="bg-card-background border-0 text-foreground-primary placeholder:text-foreground-secondary dark:text-black"
                         value={field.state.value || ""}
                         onChange={(e) => field.handleChange(e.target.value)}
                         onBlur={field.handleBlur}
@@ -278,7 +275,7 @@ export default function ContactForm() {
                     <Textarea
                       id={field.name}
                       placeholder="Utfyllende beskrivelse"
-                      className="bg-card-background border-0 h-32 text-foreground-primary placeholder:text-foreground-secondary dark:text-black"
+                      className="h-32"
                       value={field.state.value || ""}
                       onChange={(e) => field.handleChange(e.target.value)}
                       onBlur={field.handleBlur}

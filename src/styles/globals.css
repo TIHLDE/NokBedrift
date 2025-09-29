@@ -14,6 +14,9 @@
     --card-foreground: #4B566F;
     --card-border: #CCD3E4;
     --accent: #245EC0;
+    --input-background: #DAE6FA;
+    --input-foreground: #4B566F;
+    --input-border: #CCD3E4;
 }
 
 .dark {
@@ -28,6 +31,9 @@
     --card-foreground: #B2B3BD;
     --card-border: #28292D;
     --accent: #81B5FF;
+    --input-background: #111621;
+    --input-foreground: #B2B3BD;
+    --input-border: #28292D;
 }
 
 body {
