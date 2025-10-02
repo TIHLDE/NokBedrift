@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 
-const linjer = [
+const studier = [
   {
     title: "Digital forretningsutvikling",
     description:
@@ -25,25 +25,25 @@ const linjer = [
   },
 ];
 
-export default function Linjene() {
+export default function Studiene() {
   return (
     <div className="flex flex-col items-center justify-center w-full overflow-x-clip">
-      {/* Om TIHLDE Linjene */}
-      <section id="linjene" className="max-w-5xl px-4 py-16 mt-32">
+      {/* Om TIHLDE Studiene */}
+      <section id="studiene" className="max-w-5xl px-4 py-16 mt-32">
         <h1 className="mb-4 text-5xl md:text-6xl font-bold text-foreground-primary">
-          Linjene
+          Studiene
         </h1>
         <div className="flex flex-col gap-8 mt-8">
-          {linjer.map((linje) => (
-            <Card key={linje.title}>
+          {studier.map((studie) => (
+            <Card key={studie.title}>
               <CardHeader>
                 <CardTitle className="mb-2 text-2xl md:text-4xl font-semibold">
-                  {linje.title}
+                  {studie.title}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-foreground-secondary leading-relaxed text-lg">
-                  {linje.description}
+                  {studie.description}
                 </p>
               </CardContent>
             </Card>

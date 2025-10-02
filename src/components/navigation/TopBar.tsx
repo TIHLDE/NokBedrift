@@ -10,7 +10,7 @@ import { useTheme } from "@/components/providers/ThemeProvider";
 
 const navigationItems = [
   { id: "home", text: "Hjem", to: "/" },
-  { id: "linjene", text: "Linjene", to: "/linjene" },
+  { id: "studiene", text: "Studiene", to: "/studiene" },
   { id: "kontakt", text: "Kontakt", to: "/kontakt" },
 ];
 
@@ -83,9 +83,9 @@ const TopBar: React.FC = () => {
             key={`theme-${theme}-${resolvedTheme}`}
           >
             {isDarkMode ? (
-              <SunIcon className="h-6 w-6 cursor-pointer text-textSecondary" />
+              <SunIcon className="h-6 w-6 cursor-pointer transition-colors text-foreground-secondary hover:text-foreground-primary" />
             ) : (
-              <MoonIcon className="h-6 w-6 cursor-pointer text-textSecondary" />
+              <MoonIcon className="h-6 w-6 cursor-pointer transition-colors text-foreground-secondary hover:text-foreground-primary" />
             )}
           </button>
         </div>

@@ -1,15 +1,25 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
-import {GraduationCap, HomeIcon, Mail} from "lucide-react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
+import { GraduationCap, HomeIcon, Mail } from "lucide-react";
 
 const navigationItems = [
-  { id: 'home', text: 'Hjem', to: '/', icon: <HomeIcon className="h-5 w-5" /> },
-  { id: 'linjene', text: 'Linjene', to: '/linjene', icon: <GraduationCap className="h-5 w-5" /> },
-  { id: 'kontakt', text: 'Kontakt', to: '/kontakt', icon: <Mail className="h-5 w-5" /> },
+  { id: "home", text: "Hjem", to: "/", icon: <HomeIcon className="h-5 w-5" /> },
+  {
+    id: "studiene",
+    text: "Studiene",
+    to: "/studiene",
+    icon: <GraduationCap className="h-5 w-5" />,
+  },
+  {
+    id: "kontakt",
+    text: "Kontakt",
+    to: "/kontakt",
+    icon: <Mail className="h-5 w-5" />,
+  },
 ];
 
 const BottomBar: React.FC = () => {
@@ -23,8 +33,10 @@ const BottomBar: React.FC = () => {
             key={navigationItem.id}
             href={navigationItem.to}
             className={clsx(
-              'flex flex-col items-center text-xs font-medium transition-colors',
-              pathname === navigationItem.to ? 'font-bold text-foreground-primary' : 'text-foreground-secondary'
+              "flex flex-col items-center text-xs font-medium transition-colors",
+              pathname === navigationItem.to
+                ? "font-bold text-foreground-primary"
+                : "text-foreground-secondary"
             )}
           >
             {navigationItem.icon}
