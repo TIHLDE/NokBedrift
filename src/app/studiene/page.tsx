@@ -6,22 +6,22 @@ const studier = [
   {
     title: "Digital forretningsutvikling",
     description:
-      "Digital forretningsutvikling handler om å skape og utvikle nye digitale løsninger og forretningsmodeller. Studiet kombinerer informatikk med økonomi, markedsføring, organisasjon og ledelse. Du lærer hvordan teknologi kan brukes til å løse forretningsmessige utfordringer, drive innovasjon og skape konkurransefortrinn. Studentene får innsikt i både tekniske og strategiske sider, og lærer å samarbeide på tvers av fagfelt for å utvikle bærekraftige digitale konsepter.",
+      "Digital forretningsutvikling kombinerer IT, økonomi og ledelse for å skape forretningsutviklere med tverrfaglig kompetanse. For at samfunnet skal digitaliseres er det nødvendig med ledere som har både teknisk og økonomisk kompetanse. Digital forretningsutvikling er lagt opp med høyt fokus på praktisk erfaring innenfor teamarbeid og kommunikasjon. Studiet søker å utdanne dyktige endringsagenter som kan effektivisere arbeidsprosesser og implementere digitale løsninger i bedrifter.",
   },
   {
     title: "Dataingeniør",
     description:
-      "Som dataingeniør får du et solid fundament innen programmering, databaser, systemutvikling og algoritmer. Studiet gir deg ferdigheter til å bygge digitale systemer og applikasjoner med fokus på funksjonalitet, ytelse, sikkerhet og brukervennlighet. Du lærer å kombinere teori med praktiske prosjekter, og utvikler evnen til å jobbe i team for å lage løsninger som møter brukernes behov. Utdanningen åpner for arbeid innen både programvareutvikling, konsulentvirksomhet og teknologiledelse.",
+        "Dataingeniør-studiet kombinerer det beste fra de spesialiserte informatikkutdanningene og de tradisjonelle ingeniørutdanningene. Det legger mye vekt på praktisk utvikling av systemer og programmer, og studentene får et godt grunnlag i datateknikk, matematikk og teknisk-naturvitenskapelige fag, samt varig og verdifull kompetanse om hvordan datateknikk kan benyttes."
   },
   {
     title: "Digital infrastruktur og cybersikkerhet",
     description:
-      "Denne linjen gir deg kunnskap om hvordan digitale systemer bygges, driftes og sikres. Du lærer om nettverk, servere, skyteknologi og hvordan virksomheter kan beskytte seg mot digitale trusler. Utdanningen kombinerer informatikk med praktiske ferdigheter i drift og sikkerhet, slik at du kan bidra til å utvikle robuste og trygge IT-løsninger. Det legges stor vekt på å forstå sårbarheter, risikovurdering og tiltak for å beskytte data, systemer og brukere mot angrep.",
+      "Dette bachelorstudiet setter fokus på den drift-tekniske IKT-kompetansen bedrifter etterspør. Studentene lærer planleggingsprosesser og oppsett av virtuelle maskiner med bruk av teknologier som VMWare og HyperV. Videre temaer i studiet er Linux, Windows Server, “Cloud Computing” og overvåkning og sikkerhet i digital infrastruktur.",
   },
   {
     title: "Digital transformasjon",
     description:
-      "Studiet i digital transformasjon gir deg en avansert forståelse av hvordan teknologi endrer virksomheter og samfunnet. Du lærer å analysere og utnytte nye digitale teknologier for å skape vekst, effektivisering og innovasjon i organisasjoner. Faget kombinerer strategisk ledelse, organisasjonsutvikling og teknologiforståelse, og gir deg kompetanse til å lede endringsprosesser i både private og offentlige virksomheter. Fokus ligger på å koble teknologi med forretningsstrategi for å møte fremtidens utfordringer.",
+      "Digital transformasjon er et veletablert forskningsområde som tar for seg hvordan utøvelse og koordinering av samarbeidsaktiviteter kan støttes ved hjelp av ulike IKT-systemer. Studentene ved denne 2 årige masteren er i stand til å samhandle effektivt i forskjellige tverrfaglige problemløsningsprosesser.",
   },
 ];
 
