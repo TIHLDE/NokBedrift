@@ -1,0 +1,9 @@
+.git
+.idea
+.next
+node_modules
+.gitignore
+README copy.md
+README.md
+deploy.sh
+.github
