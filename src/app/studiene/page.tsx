@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
+import Image from "next/image";
 
 const studier = [
   {
@@ -28,7 +29,41 @@ const studier = [
 export default function Studiene() {
   return (
     <div className="flex flex-col items-center justify-center w-full overflow-x-clip">
-      {/* Om TIHLDE Studiene */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-140 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+      >
+        <div
+          style={{
+            clipPath:
+              "polygon(74.1% 44.1%, 100% 61.6%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+          }}
+          className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-cyan-500 to-indigo-700 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+        />
+      </div>
+      
+      <section className="w-full px-4 py-32">
+      <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col gap-x-16 md:flex-row w-full">
+            <div className="pr-0 md:pr-4 pt-20 pb-10">
+              <h1 className="mb-6 text-5xl md:text-6xl font-bold text-foreground-primary">
+                Om TIHLDE
+              </h1>
+              <p className="mb-6 text-foreground-secondary text-lg leading-relaxed">
+              TIHLDE (Trondheim IngeniørHøgskoles Linjeforening for Dannede EDBere) er linjeforeningen for bachelorstudiene Dataingeniør, Digital infrastruktur og cybersikkerhet, Digital forretningsutvikling, Informasjonsbehandling samt masterstudiet Digital transformasjon ved AIT, IDI, IIK NTNU på Gløshaugen.
+              </p>
+            </div>
+            <Image
+              src="/img/TihldeBackground.jpg"
+              alt="Kontakt"
+              className="w-full object-contain"
+              width={300}
+              height={300}
+            />
+          </div>
+        </div>
+      </section>
+
       <section id="studiene" className="max-w-5xl px-4 py-16 mt-32">
         <h1 className="mb-4 text-5xl md:text-6xl font-bold text-foreground-primary">
           Studiene

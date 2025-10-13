@@ -118,10 +118,7 @@ export default function ContactForm() {
   return (
     <Card className="border-0 overflow-hidden">
       <CardHeader>
-        <CardTitle className="text-3xl font-bold">Ta kontakt med oss</CardTitle>
-        <CardDescription>
-          Fyll ut kontaktskjemaet, så hører du fra oss straks.
-        </CardDescription>
+        <CardTitle className="text-3xl font-bold">Meld interesse</CardTitle>
       </CardHeader>
 
       <CardContent>
@@ -148,7 +145,7 @@ export default function ContactForm() {
                       </Label>
                       <Input
                         id={field.name}
-                        placeholder="Firmanavn"
+                        placeholder="Skriv her..."
                         value={field.state.value || ""}
                         onChange={(e) => field.handleChange(e.target.value)}
                         onBlur={field.handleBlur}
@@ -175,7 +172,7 @@ export default function ContactForm() {
                       </Label>
                       <Input
                         id={field.name}
-                        placeholder="Ola Nordmann"
+                        placeholder="Skriv her..."
                         value={field.state.value || ""}
                         onChange={(e) => field.handleChange(e.target.value)}
                         onBlur={field.handleBlur}
@@ -198,11 +195,11 @@ export default function ContactForm() {
                         htmlFor={field.name}
                         className="text-sm font-medium"
                       >
-                        Mail <span className="text-red-500">*</span>
+                        Epost <span className="text-red-500">*</span>
                       </Label>
                       <Input
                         id={field.name}
-                        placeholder="eksempel@mail.com"
+                        placeholder="Skriv her..."
                         value={field.state.value || ""}
                         onChange={(e) => field.handleChange(e.target.value)}
                         onBlur={field.handleBlur}
@@ -217,16 +214,16 @@ export default function ContactForm() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="space-y-4">
+          <div className="space-y-4">
               <form.Field
-                name="time"
+                name="type"
                 mode="array"
                 children={(field) => {
                   return (
                     <>
                       <MultiCheckbox
-                        label="Tidsramme"
-                        options={semesters}
+                        label="Arrangementer"
+                        options={types}
                         selected={field.state.value || []}
                         onChange={(newVal) => field.handleChange(newVal)}
                       />
@@ -240,14 +237,14 @@ export default function ContactForm() {
 
             <div className="space-y-4">
               <form.Field
-                name="type"
+                name="time"
                 mode="array"
                 children={(field) => {
                   return (
                     <>
                       <MultiCheckbox
-                        label="Type arrangement"
-                        options={types}
+                        label="Semester"
+                        options={semesters}
                         selected={field.state.value || []}
                         onChange={(newVal) => field.handleChange(newVal)}
                       />
@@ -270,11 +267,11 @@ export default function ContactForm() {
                       htmlFor={field.name}
                       className="text-sm font-medium text-foreground-primary"
                     >
-                      Melding
+                      Kommentar
                     </Label>
                     <Textarea
                       id={field.name}
-                      placeholder="Utfyllende beskrivelse"
+                      placeholder="Skriv her..."
                       className="h-32"
                       value={field.state.value || ""}
                       onChange={(e) => field.handleChange(e.target.value)}
