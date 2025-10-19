@@ -18,7 +18,7 @@ export default function Kontakt() {
       </div>
       <>
       <section className="relative flex min-h-[60vh] items-center justify-center w-full max-w-5xl md:max-w-7xl">
-        <div className="mx-auto max-w-4xl text-center px-4 py-40 sm:py-40 md:py-60 flex items-center justify-center flex-col">
+        <div className="mx-auto max-w-4xl text-center px-4 py-20 sm:py-24 md:py-32 flex items-center justify-center flex-col">
           <p className="text-accent mb-2">Møt morgendagens IT-talenter!</p>
           <h1 className="mb-4 text-4xl sm:text-5xl font-extrabold md:text-7xl text-foreground-primary">
             Send oss en mail!
