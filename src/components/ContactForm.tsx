@@ -214,7 +214,7 @@ export default function ContactForm() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-          <div className="grid gap-6 space-y-4">
+          <div className="space-y-4">
               <form.Field
                 name="type"
                 mode="array"
