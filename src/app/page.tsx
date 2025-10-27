@@ -79,7 +79,7 @@ export default function Hjem() {
         <InfoCard
           header={"Bedriftsekskursjon til Oslo"}
           description={bedriftsekskursjon}
-          imgSrc={"/bedpres.jpeg"}
+          imgSrc={"/bedriftsekskursjon.jpg"}
           type={"rightAlignImage"}
         />
       </div>
