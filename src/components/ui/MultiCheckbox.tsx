@@ -28,6 +28,7 @@ export default function MultiCheckbox({
                 {options.map((opt) => (
                     <label key={opt} className="flex items-center space-x-2">
                         <Checkbox
+                            className={"bg-inputBackground"}
                             checked={selected.includes(opt)} onChange={() => toggle(opt)}
                             onCheckedChange={() => toggle(opt)}
                         />
