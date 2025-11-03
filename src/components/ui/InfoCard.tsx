@@ -24,9 +24,9 @@ const InfoCard = ({header, description, imgSrc, type}: InfoCardProps): JSX.Eleme
                 <Image
                     src={imgSrc}
                     alt={header}
-                    width={1206}
-                    height={796}
-                    className="h-auto w-full rounded-lg object-cover"
+                    width={990}
+                    height={638}
+                    className="h-auto w-full aspect-video rounded-lg object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                 />
             </div>
