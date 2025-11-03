@@ -23,7 +23,7 @@ export default function JobPostList() {
             <Card className="h-80 flex justify-center items-center">
                 <CardContent className="flex flex-col items-center justify-center gap-10">
                     <CardHeader className="text-center">
-                        <CardTitle className="text-3xl text-slate-400">Error: {message}</CardTitle>
+                        <CardTitle className="text-3xl text-slate-400">{message}</CardTitle>
                     </CardHeader>
                     <Bug size={64} className="text-slate-400" />
                 </CardContent>

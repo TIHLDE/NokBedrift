@@ -9,7 +9,7 @@ export async function getJobPosts(endpoint: string): Promise<JobPost[]> {
     });
 
     if (!response.ok) {
-        throw new Error(`${response.status}`);
+        throw new Error("Ups noe gikk galt");
     }
 
     const data = await response.json();

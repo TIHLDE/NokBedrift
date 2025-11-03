@@ -1,6 +1,6 @@
 import {NextResponse} from "next/server";
 
-const UPSTREAM = process.env.PHOTON_URL;
+const UPSTREAM = process.env.NEXT_PUBLIC_PHOTON_URL;
 const PRIVATE_KEY = process.env.PHOTON_EMIAL_KEY;
 
 export async function POST(req: Request) {
@@ -8,7 +8,7 @@ export async function POST(req: Request) {
         const data = await req.json();
 
         const emailBody = {
-            to: "naeringslivsminister@tihlde.org",
+            to: "iverlindholm@icloud.com",
             subject: `Bedrift: ${data.info.bedrift} – Ny kontaktforespørsel`,
             content: [
                 {
