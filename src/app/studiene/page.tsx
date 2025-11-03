@@ -49,7 +49,7 @@ export default function Studiene() {
               <h1 className="mb-6 text-5xl md:text-6xl font-bold text-foreground-primary">
                 Om TIHLDE
               </h1>
-              <p className="mb-6 text-foreground-secondary text-lg leading-relaxed">
+              <p className="mb-2 text-foreground-secondary text-lg leading-relaxed">
               TIHLDE (Trondheim IngeniørHøgskoles Linjeforening for Dannede EDBere) er linjeforeningen for bachelorstudiene Dataingeniør, Digital infrastruktur og cybersikkerhet, Digital forretningsutvikling, Informasjonsbehandling samt masterstudiet Digital transformasjon ved AIT, IDI, IIK NTNU på Gløshaugen.
               </p>
             </div>
@@ -64,7 +64,7 @@ export default function Studiene() {
         </div>
       </section>
 
-      <section id="studiene" className="max-w-5xl px-4 py-16 mt-32">
+      <section id="studiene" className="max-w-6xl px-4 py-16 mt-4">
         <h1 className="mb-4 text-5xl md:text-6xl font-bold text-foreground-primary">
           Studiene
         </h1>
