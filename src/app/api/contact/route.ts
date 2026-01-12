@@ -8,7 +8,7 @@ export async function POST(req: Request) {
         const data = await req.json();
 
         const emailBody = {
-            to: "iverlindholm@icloud.com",
+            to: "naeringslivsminister@tihlde.org",
             subject: `Bedrift: ${data.info.bedrift} – Ny kontaktforespørsel`,
             content: [
                 {
