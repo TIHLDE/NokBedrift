@@ -1,6 +1,6 @@
 import {NextResponse} from "next/server";
 
-const UPSTREAM = process.env.NEXT_PUBLIC_PHOTON_URL;
+const UPSTREAM = process.env.PHOTON_URL;
 const PRIVATE_KEY = process.env.PHOTON_EMIAL_KEY;
 
 export async function POST(req: Request) {
