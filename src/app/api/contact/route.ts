@@ -1,56 +1,68 @@
 import {NextResponse} from "next/server";
+import nodemailer from "nodemailer";
 
-const UPSTREAM = process.env.PHOTON_URL;
-const PRIVATE_KEY = process.env.PHOTON_EMAIL_KEY;
+export const runtime = "nodejs";
+
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+    },
+});
+
+type ContentBlock = {type: "title" | "text"; content: string};
+
+function renderHtml(blocks: ContentBlock[]): string {
+    return blocks
+        .map((b) =>
+            b.type === "title"
+                ? `<h2 style="margin:16px 0 8px;font-family:sans-serif">${escapeHtml(b.content)}</h2>`
+                : `<p style="margin:0 0 12px;font-family:sans-serif;line-height:1.5">${escapeHtml(b.content)}</p>`,
+        )
+        .join("\n");
+}
+
+function renderText(blocks: ContentBlock[]): string {
+    return blocks.map((b) => b.content).join("\n\n");
+}
+
+function escapeHtml(s: string): string {
+    return s
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
 
 export async function POST(req: Request) {
     try {
         const data = await req.json();
 
-        const emailBody = {
-            to: "naeringslivsminister@tihlde.org",
-            subject: `Bedrift: ${data.info.bedrift} – Ny kontaktforespørsel`,
-            content: [
-                {
-                    type: "title",
-                    content: `Kontaktperson: ${data.info.kontaktperson}, ${data.info.epost}`,
-                },
-                {
-                    type: "text",
-                    content: `Kommentar: ${data.comment}`,
-                },
-                {
-                    type: "text",
-                    content: `Valgt semester: ${data.time.join(", ")}`,
-                },
-                {
-                    type: "text",
-                    content: `Type arrangement: ${data.type.join(", ")}`,
-                },
-            ],
-        };
-
-        const baseUrl = UPSTREAM?.endsWith("/") ? UPSTREAM.slice(0, -1) : UPSTREAM;
-
-        const response = await fetch(`${baseUrl}/api/email/send`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${PRIVATE_KEY}`,
+        const subject = `Bedrift: ${data.info.bedrift} – Ny kontaktforespørsel`;
+        const content: ContentBlock[] = [
+            {
+                type: "title",
+                content: `Kontaktperson: ${data.info.kontaktperson}, ${data.info.epost}`,
             },
-            body: JSON.stringify(emailBody),
+            {type: "text", content: `Kommentar: ${data.comment}`},
+            {type: "text", content: `Valgt semester: ${data.time.join(", ")}`},
+            {type: "text", content: `Type arrangement: ${data.type.join(", ")}`},
+        ];
+
+        const result = await transporter.sendMail({
+            from: process.env.GMAIL_USER,
+            to: process.env.CONTACT_TO_EMAIL ?? "naeringslivsminister@tihlde.org",
+            replyTo: data.info.epost,
+            subject,
+            text: renderText(content),
+            html: renderHtml(content),
         });
 
-        if (!response.ok) {
-            const text = await response.text();
-            console.error("Upstream error:", text);
-            return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
-        }
-
-        const result = await response.json();
-        return NextResponse.json({ success: true, result });
-    } catch (err: any) {
-        console.error(err);
-        return NextResponse.json({ error: "Server error" }, { status: 500 });
+        return NextResponse.json({success: true, result: {messageId: result.messageId}});
+    } catch (err) {
+        console.error("Email send failed:", err);
+        return NextResponse.json({error: "Failed to send email"}, {status: 500});
     }
 }
